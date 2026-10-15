@@ -1,0 +1,743 @@
+Apache Maven 3.9.16 (2bdd9fddda4b155ebf8000e807eb73fd829a51d5)
+Maven home: C:\Program Files\Apache NetBeans\java\maven
+Java version: 21.0.2, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk-21
+Default locale: en_US, platform encoding: UTF-8
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+[DEBUG] Created new class realm maven.api
+[DEBUG] Importing foreign packages into class realm maven.api
+[DEBUG]   Imported: javax.annotation.* < plexus.core
+[DEBUG]   Imported: javax.annotation.security.* < plexus.core
+[DEBUG]   Imported: javax.inject.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.artifact < plexus.core
+[DEBUG]   Imported: org.apache.maven.classrealm < plexus.core
+[DEBUG]   Imported: org.apache.maven.cli < plexus.core
+[DEBUG]   Imported: org.apache.maven.configuration < plexus.core
+[DEBUG]   Imported: org.apache.maven.exception < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution.scope < plexus.core
+[DEBUG]   Imported: org.apache.maven.graph < plexus.core
+[DEBUG]   Imported: org.apache.maven.lifecycle < plexus.core
+[DEBUG]   Imported: org.apache.maven.model < plexus.core
+[DEBUG]   Imported: org.apache.maven.monitor < plexus.core
+[DEBUG]   Imported: org.apache.maven.plugin < plexus.core
+[DEBUG]   Imported: org.apache.maven.profiles < plexus.core
+[DEBUG]   Imported: org.apache.maven.project < plexus.core
+[DEBUG]   Imported: org.apache.maven.reporting < plexus.core
+[DEBUG]   Imported: org.apache.maven.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.rtinfo < plexus.core
+[DEBUG]   Imported: org.apache.maven.settings < plexus.core
+[DEBUG]   Imported: org.apache.maven.toolchain < plexus.core
+[DEBUG]   Imported: org.apache.maven.usability < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authentication < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authorization < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.events < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.observers < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.proxy < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.resource < plexus.core
+[DEBUG]   Imported: org.codehaus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.* < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.component < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.configuration < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.container < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.context < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.lifecycle < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.logging < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.personality < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.Xpp3Dom < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParser < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParserException < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlSerializer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.* < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.artifact < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.collection < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.deployment < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.graph < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.installation < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.internal.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.metadata < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.repository < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.resolution < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.spi < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.transfer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.util < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.version < plexus.core
+[DEBUG]   Imported: org.fusesource.jansi.* < plexus.core
+[DEBUG]   Imported: org.slf4j.* < plexus.core
+[DEBUG]   Imported: org.slf4j.event.* < plexus.core
+[DEBUG]   Imported: org.slf4j.helpers.* < plexus.core
+[DEBUG]   Imported: org.slf4j.spi.* < plexus.core
+[DEBUG] Populating class realm maven.api
+[DEBUG] Created adapter factory; available factories [file-lock, rwlock-local, semaphore-local, noop]; available name mappers [discriminating, file-gaecv, file-gav, file-hgaecv, file-hgav, file-static, gaecv, gav, static]
+[INFO] Error stacktraces are turned on.
+[DEBUG] Message scheme: color
+[DEBUG] Message styles: debug info warning error success failure strong mojo project
+[DEBUG] Reading global settings from C:\Program Files\Apache NetBeans\java\maven\conf\settings.xml
+[DEBUG] Reading user settings from C:\Users\ACER\.m2\settings.xml
+[DEBUG] Reading global toolchains from C:\Program Files\Apache NetBeans\java\maven\conf\toolchains.xml
+[DEBUG] Reading user toolchains from C:\Users\ACER\.m2\toolchains.xml
+[DEBUG] Using local repository at C:\Users\ACER\.m2\repository
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10.0 for C:\Users\ACER\.m2\repository
+[INFO] Scanning for projects...
+[DEBUG] Extension realms for project com.java_desktop_application.filemanager:FileManagerApp:jar:1.0-SNAPSHOT: (none)
+[DEBUG] Looking up lifecycle mappings for packaging jar from ClassRealm[plexus.core, parent: null]
+[DEBUG] Resolving plugin prefix javafx from [org.apache.maven.plugins, org.codehaus.mojo]
+[DEBUG] Creating adapter using nameMapper 'gaecv' and factory 'rwlock-local'
+[DEBUG] Resolved plugin prefix javafx to org.openjfx:javafx-maven-plugin from repository null
+[DEBUG] === REACTOR BUILD PLAN ================================================
+[DEBUG] Project: com.java_desktop_application.filemanager:FileManagerApp:jar:1.0-SNAPSHOT
+[DEBUG] Tasks:   [javafx:run]
+[DEBUG] Style:   Regular
+[DEBUG] =======================================================================
+[INFO] 
+[INFO] ------< com.java_desktop_application.filemanager:FileManagerApp >-------
+[INFO] Building FileManagerApp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[DEBUG] Resolving plugin prefix javafx from [org.apache.maven.plugins, org.codehaus.mojo]
+[DEBUG] Resolved plugin prefix javafx to org.openjfx:javafx-maven-plugin from repository null
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] === PROJECT BUILD PLAN ================================================
+[DEBUG] Project:       com.java_desktop_application.filemanager:FileManagerApp:1.0-SNAPSHOT
+[DEBUG] Dependencies (collect): []
+[DEBUG] Dependencies (resolve): [runtime]
+[DEBUG] Repositories (dependencies): [central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] Repositories (plugins)     : [central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] --- init fork of com.java_desktop_application.filemanager:FileManagerApp:1.0-SNAPSHOT for org.openjfx:javafx-maven-plugin:0.0.8:run (default-cli) ---
+[DEBUG] Dependencies (collect): []
+[DEBUG] Dependencies (resolve): [compile]
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-resources-plugin:3.0.2:resources (default-resources)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <addDefaultExcludes default-value="true"/>
+  <buildFilters default-value="${project.build.filters}"/>
+  <encoding default-value="${project.build.sourceEncoding}"/>
+  <escapeWindowsPaths default-value="true"/>
+  <fileNameFiltering default-value="false"/>
+  <includeEmptyDirs default-value="false"/>
+  <outputDirectory default-value="${project.build.outputDirectory}"/>
+  <overwrite default-value="false"/>
+  <project default-value="${project}"/>
+  <resources default-value="${project.resources}"/>
+  <session default-value="${session}"/>
+  <skip default-value="false">${maven.resources.skip}</skip>
+  <supportMultiLineFiltering default-value="false"/>
+  <useBuildFilters default-value="true"/>
+  <useDefaultDelimiters default-value="true"/>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-compiler-plugin:3.8.0:compile (default-compile)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <basedir default-value="${basedir}"/>
+  <buildDirectory default-value="${project.build.directory}"/>
+  <compilePath default-value="${project.compileClasspathElements}"/>
+  <compileSourceRoots default-value="${project.compileSourceRoots}"/>
+  <compilerId default-value="javac">${maven.compiler.compilerId}</compilerId>
+  <compilerReuseStrategy default-value="${reuseCreated}">${maven.compiler.compilerReuseStrategy}</compilerReuseStrategy>
+  <compilerVersion>${maven.compiler.compilerVersion}</compilerVersion>
+  <debug default-value="true">${maven.compiler.debug}</debug>
+  <debuglevel>${maven.compiler.debuglevel}</debuglevel>
+  <encoding default-value="${project.build.sourceEncoding}">${encoding}</encoding>
+  <executable>${maven.compiler.executable}</executable>
+  <failOnError default-value="true">${maven.compiler.failOnError}</failOnError>
+  <failOnWarning default-value="false">${maven.compiler.failOnWarning}</failOnWarning>
+  <forceJavacCompilerUse default-value="false">${maven.compiler.forceJavacCompilerUse}</forceJavacCompilerUse>
+  <fork default-value="false">${maven.compiler.fork}</fork>
+  <generatedSourcesDirectory default-value="${project.build.directory}/generated-sources/annotations"/>
+  <maxmem>${maven.compiler.maxmem}</maxmem>
+  <meminitial>${maven.compiler.meminitial}</meminitial>
+  <mojoExecution default-value="${mojoExecution}"/>
+  <optimize default-value="false">${maven.compiler.optimize}</optimize>
+  <outputDirectory default-value="${project.build.outputDirectory}"/>
+  <parameters default-value="false">${maven.compiler.parameters}</parameters>
+  <project default-value="${project}"/>
+  <projectArtifact default-value="${project.artifact}"/>
+  <release>${maven.compiler.release}</release>
+  <session default-value="${session}"/>
+  <showDeprecation default-value="false">${maven.compiler.showDeprecation}</showDeprecation>
+  <showWarnings default-value="false">${maven.compiler.showWarnings}</showWarnings>
+  <skipMain>${maven.main.skip}</skipMain>
+  <skipMultiThreadWarning default-value="false">${maven.compiler.skipMultiThreadWarning}</skipMultiThreadWarning>
+  <source default-value="1.6">${maven.compiler.source}</source>
+  <staleMillis default-value="0">${lastModGranularityMs}</staleMillis>
+  <target default-value="1.6">${maven.compiler.target}</target>
+  <useIncrementalCompilation default-value="true">${maven.compiler.useIncrementalCompilation}</useIncrementalCompilation>
+  <verbose default-value="false">${maven.compiler.verbose}</verbose>
+</configuration>
+[DEBUG] --- exit fork of com.java_desktop_application.filemanager:FileManagerApp:1.0-SNAPSHOT for org.openjfx:javafx-maven-plugin:0.0.8:run (default-cli) ---
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.openjfx:javafx-maven-plugin:0.0.8:run (default-cli)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <async default-value="false">${javafx.async}</async>
+  <asyncDestroyOnShutdown default-value="true">${javafx.asyncDestroyOnShutdown}</asyncDestroyOnShutdown>
+  <basedir default-value="${basedir}"/>
+  <builddir default-value="${project.build.directory}"/>
+  <commandlineArgs>${javafx.args}</commandlineArgs>
+  <compilePath default-value="${project.compileClasspathElements}"/>
+  <executable default-value="java">${javafx.executable}</executable>
+  <includePathExceptionsInClasspath default-value="false">${javafx.includePathExceptionsInClasspath}</includePathExceptionsInClasspath>
+  <mainClass>com.java_desktop_application.filemanager.App</mainClass>
+  <outputFile>${javafx.outputFile}</outputFile>
+  <project default-value="${project}"/>
+  <runtimePathOption>${javafx.runtimePathOption}</runtimePathOption>
+  <session default-value="${session}"/>
+  <skip default-value="false">${javafx.skip}</skip>
+  <workingDirectory>${javafx.workingDirectory}</workingDirectory>
+</configuration>
+[DEBUG] =======================================================================
+[INFO] 
+[INFO] >>> javafx:0.0.8:run (default-cli) > process-classes @ FileManagerApp >>>
+[WARNING] 6 problems were encountered while building the effective model for org.openjfx:javafx-controls:jar:21.0.2 during dependency collection step for project. Path to offending node from root:
+ -> com.java_desktop_application.filemanager:FileManagerApp:jar:1.0-SNAPSHOT
+ => org.openjfx:javafx-controls:jar:21.0.2 (compile)
+Problems
+* 'profiles.profile.id' Duplicate activation for profile linux-x86_64 @ org.openjfx:javafx:21.0.2
+* 'profiles.profile.id' Duplicate activation for profile linux-aarch64 @ org.openjfx:javafx:21.0.2
+* 'profiles.profile.id' Duplicate activation for profile macosx-x86_64 @ org.openjfx:javafx:21.0.2
+* 'profiles.profile.id' Duplicate activation for profile macosx-aarch64 @ org.openjfx:javafx:21.0.2
+* 'profiles.profile.id' Duplicate activation for profile windows-x86_64 @ org.openjfx:javafx:21.0.2
+* 'profiles.profile.id' Duplicate activation for profile windows-x86 @ org.openjfx:javafx:21.0.2
+[DEBUG] Dependency collection stats {ConflictMarker.analyzeTime=572100, ConflictMarker.markTime=42000, ConflictMarker.nodeCount=19, ConflictIdSorter.graphTime=307500, ConflictIdSorter.topsortTime=298300, ConflictIdSorter.conflictIdCount=10, ConflictIdSorter.conflictIdCycleCount=4, ConflictResolver.totalTime=2865200, ConflictResolver.conflictItemCount=13, DfDependencyCollector.collectTime=38622300, DfDependencyCollector.transformTime=5624300}
+[DEBUG] com.java_desktop_application.filemanager:FileManagerApp:jar:1.0-SNAPSHOT
+[DEBUG]    junit:junit:jar:4.11:test
+[DEBUG]       org.hamcrest:hamcrest-core:jar:1.3:test
+[DEBUG]    org.openjfx:javafx-controls:jar:21.0.2:compile
+[DEBUG]       org.openjfx:javafx-controls:jar:win:21.0.2:compile
+[DEBUG]       org.openjfx:javafx-graphics:jar:21.0.2:compile
+[DEBUG]          org.openjfx:javafx-graphics:jar:win:21.0.2:compile
+[DEBUG]          org.openjfx:javafx-base:jar:21.0.2:compile
+[DEBUG]             org.openjfx:javafx-base:jar:win:21.0.2:compile
+[DEBUG]    org.openjfx:javafx-fxml:jar:21.0.2:compile
+[DEBUG]       org.openjfx:javafx-fxml:jar:win:21.0.2:compile
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ FileManagerApp ---
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for apache.snapshots (http://repository.apache.org/snapshots).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for codehaus.snapshots (http://snapshots.repository.codehaus.org).
+[DEBUG] Dependency collection stats {ConflictMarker.analyzeTime=111100, ConflictMarker.markTime=57000, ConflictMarker.nodeCount=68, ConflictIdSorter.graphTime=37300, ConflictIdSorter.topsortTime=14600, ConflictIdSorter.conflictIdCount=28, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=846600, ConflictResolver.conflictItemCount=67, DfDependencyCollector.collectTime=181316000, DfDependencyCollector.transformTime=1078800}
+[DEBUG] org.apache.maven.plugins:maven-resources-plugin:jar:3.0.2
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-artifact:jar:3.0:compile
+[DEBUG]       org.sonatype.sisu:sisu-inject-plexus:jar:1.4.2:compile
+[DEBUG]          org.sonatype.sisu:sisu-inject-bean:jar:1.4.2:compile
+[DEBUG]             org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7:compile
+[DEBUG]    org.apache.maven:maven-core:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-settings-builder:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-model-builder:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-aether-provider:jar:3.0:runtime
+[DEBUG]       org.sonatype.aether:aether-impl:jar:1.7:compile
+[DEBUG]          org.sonatype.aether:aether-spi:jar:1.7:compile
+[DEBUG]       org.sonatype.aether:aether-api:jar:1.7:compile
+[DEBUG]       org.sonatype.aether:aether-util:jar:1.7:compile
+[DEBUG]       org.codehaus.plexus:plexus-classworlds:jar:2.2.3:compile
+[DEBUG]       org.codehaus.plexus:plexus-component-annotations:jar:1.6:compile (version managed from default)
+[DEBUG]       org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3:compile
+[DEBUG]          org.sonatype.plexus:plexus-cipher:jar:1.4:compile
+[DEBUG]    org.apache.maven:maven-model:jar:3.0:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:3.0.24:compile
+[DEBUG]    org.apache.maven.shared:maven-filtering:jar:3.1.1:compile
+[DEBUG]       org.apache.maven.shared:maven-shared-utils:jar:3.0.0:compile
+[DEBUG]          com.google.code.findbugs:jsr305:jar:2.0.1:compile
+[DEBUG]       org.sonatype.plexus:plexus-build-api:jar:0.0.7:compile
+[DEBUG]    commons-io:commons-io:jar:2.5:compile
+[DEBUG]    org.codehaus.plexus:plexus-interpolation:jar:1.24:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-resources-plugin:3.0.2
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-resources-plugin:3.0.2
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-resources-plugin:3.0.2
+[DEBUG]   Included: org.apache.maven.plugins:maven-resources-plugin:jar:3.0.2
+[DEBUG]   Included: org.sonatype.sisu:sisu-inject-bean:jar:1.4.2
+[DEBUG]   Included: org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7
+[DEBUG]   Included: org.sonatype.aether:aether-util:jar:1.7
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.6
+[DEBUG]   Included: org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3
+[DEBUG]   Included: org.sonatype.plexus:plexus-cipher:jar:1.4
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.0.24
+[DEBUG]   Included: org.apache.maven.shared:maven-filtering:jar:3.1.1
+[DEBUG]   Included: org.apache.maven.shared:maven-shared-utils:jar:3.0.0
+[DEBUG]   Included: com.google.code.findbugs:jsr305:jar:2.0.1
+[DEBUG]   Included: org.sonatype.plexus:plexus-build-api:jar:0.0.7
+[DEBUG]   Included: commons-io:commons-io:jar:2.5
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.24
+[DEBUG] Loading mojo org.apache.maven.plugins:maven-resources-plugin:3.0.2:resources from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-resources-plugin:3.0.2, parent: jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e]
+[DEBUG] Configuring mojo execution 'org.apache.maven.plugins:maven-resources-plugin:3.0.2:resources:default-resources' with basic configurator -->
+[DEBUG]   (f) addDefaultExcludes = true
+[DEBUG]   (f) buildFilters = []
+[DEBUG]   (f) encoding = UTF-8
+[DEBUG]   (f) escapeWindowsPaths = true
+[DEBUG]   (f) fileNameFiltering = false
+[DEBUG]   (s) includeEmptyDirs = false
+[DEBUG]   (s) outputDirectory = E:\h?c java\FileManagerApp\target\classes
+[DEBUG]   (s) overwrite = false
+[DEBUG]   (f) project = MavenProject: com.java_desktop_application.filemanager:FileManagerApp:1.0-SNAPSHOT @ E:\h?c java\FileManagerApp\pom.xml
+[DEBUG]   (s) resources = [Resource {targetPath: null, filtering: false, FileSet {directory: E:\h?c java\FileManagerApp\src\main\resources, PatternSet [includes: {}, excludes: {}]}}]
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@1981d861
+[DEBUG]   (f) skip = false
+[DEBUG]   (f) supportMultiLineFiltering = false
+[DEBUG]   (f) useBuildFilters = true
+[DEBUG]   (s) useDefaultDelimiters = true
+[DEBUG] -- end configuration --
+[DEBUG] properties used {env.NUMBER_OF_PROCESSORS=12, env.USERPROFILE=C:\Users\ACER, java.specification.version=21, sun.cpu.isalist=amd64, env.=E:=E:\h?c java\FileManagerApp, sun.arch.data.model=64, env.PROGRAMW6432=C:\Program Files, java.vendor.url=https://java.oracle.com/, env.OS=Windows_NT, sun.boot.library.path=C:\Program Files\Java\jdk-21\bin, sun.java.command=org.codehaus.plexus.classworlds.launcher.Launcher -X javafx:run, env.SYSTEMROOT=C:\WINDOWS, jdk.debug=release, maven.version=3.9.16, java.specification.vendor=Oracle Corporation, java.version.date=2024-01-16, java.home=C:\Program Files\Java\jdk-21, java.vm.specification.vendor=Oracle Corporation, java.specification.name=Java Platform API Specification, env.LOCALAPPDATA=C:\Users\ACER\AppData\Local, env.USERDOMAIN_ROAMINGPROFILE=LAPTOP-SBAK0L4I, user.script=, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, java.runtime.version=21.0.2+13-LTS-58, env.PATH=C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files\Python313\Scripts\;C:\Program Files\Python313\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Microsoft SQL Server\170\DTS\Binn\;C:\Program Files\nodejs\;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Users\ACER\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\dotnet\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files\Apache\Maven\apache-maven-3.9.16\bin;C:\Program Files\Java\jdk-21\bin;C:\Program Files\Git\cmd;C:\Users\ACER\AppData\Local\Microsoft\WindowsApps;C:\Users\ACER\AppData\Roaming\npm;C:\Users\ACER\.dotnet\tools, env.PUBLIC=C:\Users\Public, env.EXEC_DIR=E:\h?c java\FileManagerApp, env.COMMONPROGRAMW6432=C:\Program Files\Common Files, file.encoding=UTF-8, env.COMPUTERNAME=LAPTOP-SBAK0L4I, env.HOMEPATH=\Users\ACER, env.APPDATA=C:\Users\ACER\AppData\Roaming, project.baseUri=file:/E:/h?c%20java/FileManagerApp/, java.io.tmpdir=C:\Users\ACER\AppData\Local\Temp\, java.version=21.0.2, java.vm.specification.name=Java Virtual Machine Specification, native.encoding=Cp1252, java.library.path=C:\Program Files\Java\jdk-21\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files\Python313\Scripts\;C:\Program Files\Python313\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Microsoft SQL Server\170\DTS\Binn\;C:\Program Files\nodejs\;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Users\ACER\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\dotnet\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files\Apache\Maven\apache-maven-3.9.16\bin;C:\Program Files\Java\jdk-21\bin;C:\Program Files\Git\cmd;C:\Users\ACER\AppData\Local\Microsoft\WindowsApps;C:\Users\ACER\AppData\Roaming\npm;C:\Users\ACER\.dotnet\tools;., stderr.encoding=Cp1252, java.vendor=Oracle Corporation, env.ERROR_CODE=0, classworlds.conf=C:\Program Files\Apache NetBeans\java\maven\bin\m2.conf, sun.io.unicode.encoding=UnicodeLittle, env.MSMPI_BENCHMARKS=C:\Program Files\Microsoft MPI\Benchmarks\, java.vm.specification.version=21, os.name=Windows 11, env.=EXITCODE=00000000, maven.compiler.source=17, user.home=C:\Users\ACER, maven.build.timestamp=2026-10-14T17:20:19Z, env.ALLUSERSPROFILE=C:\ProgramData, stdout.encoding=Cp1252, path.separator=;, os.version=10.0, env.CLASSWORLDS_LAUNCHER=org.codehaus.plexus.classworlds.launcher.Launcher, env.PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW, java.vm.name=Java HotSpot(TM) 64-Bit Server VM, env.USERNAME=ACER, os.arch=amd64, maven.multiModuleProjectDirectory=E:\h?c java\FileManagerApp, env.MAVEN_PROJECTBASEDIR=E:\h?c java\FileManagerApp, java.vm.info=mixed mode, sharing, env.TEMP=C:\Users\ACER\AppData\Local\Temp, java.class.version=65.0, env.ONEDRIVE=C:\Users\ACER\OneDrive, sun.jnu.encoding=Cp1252, maven.build.version=Apache Maven 3.9.16 (2bdd9fddda4b155ebf8000e807eb73fd829a51d5), maven.home=C:\Program Files\Apache NetBeans\java\maven, env.MSMPI_BIN=C:\Program Files\Microsoft MPI\Bin\, env.JAVA_HOME=C:\Program Files\Java\jdk-21, env.PROGRAMFILES=C:\Program Files, file.separator=\, java.vm.compressedOopsMode=Zero based, env.CLASSWORLDS_JAR="C:\Program Files\Apache NetBeans\java\maven\boot\plexus-classworlds-2.11.0.jar", line.separator=
+, env.PROMPT=$P$G, env.PROCESSOR_REVISION=9a03, env.PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 154 Stepping 3, GenuineIntel, env.PROGRAMDATA=C:\ProgramData, user.name=ACER, env.DRIVERDATA=C:\Windows\System32\Drivers\DriverData, env.SYSTEMDRIVE=C:, env.JVMCONFIG=\.mvn\jvm.config, env.PROGRAMFILES(X86)=C:\Program Files (x86), env.PROCESSOR_LEVEL=6, env.HOMEDRIVE=C:, env.PSMODULEPATH=C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\PowerShell\Modules\, env.TMP=C:\Users\ACER\AppData\Local\Temp, env.ANDROID_HOME=C:\Users\ACER\AppData\Local\Android\Sdk, sun.os.patch.level=, maven.compiler.target=17, env.LOGONSERVER=\\LAPTOP-SBAK0L4I, library.jansi.path=C:\Program Files\Apache NetBeans\java\maven\lib\jansi-native, env.WINDIR=C:\WINDOWS, java.class.path=C:\Program Files\Apache NetBeans\java\maven\boot\plexus-classworlds-2.11.0.jar, java.vm.vendor=Oracle Corporation, env.PROCESSOR_ARCHITECTURE=AMD64, user.variant=, env.COMMONPROGRAMFILES=C:\Program Files\Common Files, maven.conf=C:\Program Files\Apache NetBeans\java\maven/conf, sun.java.launcher=SUN_STANDARD, user.country=US, env.USERDOMAIN=LAPTOP-SBAK0L4I, env.COMSPEC=C:\WINDOWS\system32\cmd.exe, sun.cpu.endian=little, env.INTERNAL_MAVEN_OPTS=--enable-native-access=ALL-UNNAMED , user.language=en, env.JAVACMD=C:\Program Files\Java\jdk-21\bin\java.exe, env.MAVEN_HOME=C:\Program Files\Apache NetBeans\java\maven, env.WDIR=E:\, env.=C:=C:\Windows\System32, java.runtime.name=Java(TM) SE Runtime Environment, project.build.sourceEncoding=UTF-8, env.PT8HOME=C:\Program Files\Cisco Packet Tracer 9.0.0, env.COMMONPROGRAMFILES(X86)=C:\Program Files (x86)\Common Files, env.ZES_ENABLE_SYSMAN=1, env.MAVEN_CMD_LINE_ARGS=-X javafx:run, java.vendor.url.bug=https://bugreport.java.com/bugreport/, user.dir=E:\h?c java\FileManagerApp, env.ONEDRIVECONSUMER=C:\Users\ACER\OneDrive, java.vm.version=21.0.2+13-LTS-58}
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[DEBUG] resource with targetPath null
+directory E:\h?c java\FileManagerApp\src\main\resources
+excludes []
+includes []
+[DEBUG] ignoreDelta true
+[INFO] Copying 2 resources
+[DEBUG] Copying file com\java_desktop_application\filemanager\css\Style.css
+[DEBUG] file Style.css has a filtered file extension
+[DEBUG] copy E:\h?c java\FileManagerApp\src\main\resources\com\java_desktop_application\filemanager\css\Style.css to E:\h?c java\FileManagerApp\target\classes\com\java_desktop_application\filemanager\css\Style.css
+[DEBUG] Copying file com\java_desktop_application\filemanager\main.fxml
+[DEBUG] file main.fxml has a filtered file extension
+[DEBUG] copy E:\h?c java\FileManagerApp\src\main\resources\com\java_desktop_application\filemanager\main.fxml to E:\h?c java\FileManagerApp\target\classes\com\java_desktop_application\filemanager\main.fxml
+[DEBUG] no use filter components
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ FileManagerApp ---
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for ow2-snapshot (http://repository.ow2.org/nexus/content/repositories/snapshots).
+[DEBUG] Dependency collection stats {ConflictMarker.analyzeTime=140100, ConflictMarker.markTime=155600, ConflictMarker.nodeCount=118, ConflictIdSorter.graphTime=69300, ConflictIdSorter.topsortTime=31000, ConflictIdSorter.conflictIdCount=45, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=799000, ConflictResolver.conflictItemCount=72, DfDependencyCollector.collectTime=133959100, DfDependencyCollector.transformTime=1210500}
+[DEBUG] org.apache.maven.plugins:maven-compiler-plugin:jar:3.8.0
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-model:jar:3.0:compile
+[DEBUG]       org.sonatype.sisu:sisu-inject-plexus:jar:1.4.2:compile
+[DEBUG]          org.sonatype.sisu:sisu-inject-bean:jar:1.4.2:compile
+[DEBUG]             org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7:compile
+[DEBUG]    org.apache.maven:maven-artifact:jar:3.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-utils:jar:2.0.4:compile
+[DEBUG]    org.apache.maven:maven-core:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-settings-builder:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-model-builder:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-aether-provider:jar:3.0:runtime
+[DEBUG]       org.sonatype.aether:aether-impl:jar:1.7:compile
+[DEBUG]          org.sonatype.aether:aether-spi:jar:1.7:compile
+[DEBUG]       org.sonatype.aether:aether-api:jar:1.7:compile
+[DEBUG]       org.sonatype.aether:aether-util:jar:1.7:compile
+[DEBUG]       org.codehaus.plexus:plexus-interpolation:jar:1.14:compile
+[DEBUG]       org.codehaus.plexus:plexus-classworlds:jar:2.2.3:compile
+[DEBUG]       org.codehaus.plexus:plexus-component-annotations:jar:1.7.1:compile (version managed from default)
+[DEBUG]       org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3:compile
+[DEBUG]          org.sonatype.plexus:plexus-cipher:jar:1.4:compile
+[DEBUG]    org.apache.maven.shared:maven-shared-utils:jar:3.2.1:compile
+[DEBUG]       commons-io:commons-io:jar:2.5:compile
+[DEBUG]    org.apache.maven.shared:maven-shared-incremental:jar:1.1:compile
+[DEBUG]    org.codehaus.plexus:plexus-java:jar:0.9.10:compile
+[DEBUG]       org.ow2.asm:asm:jar:6.2:compile
+[DEBUG]       com.thoughtworks.qdox:qdox:jar:2.0-M9:compile (version managed from default)
+[DEBUG]    org.codehaus.plexus:plexus-compiler-api:jar:2.8.4:compile
+[DEBUG]    org.codehaus.plexus:plexus-compiler-manager:jar:2.8.4:compile
+[DEBUG]    org.codehaus.plexus:plexus-compiler-javac:jar:2.8.4:runtime
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-compiler-plugin:3.8.0
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-compiler-plugin:3.8.0
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-compiler-plugin:3.8.0
+[DEBUG]   Included: org.apache.maven.plugins:maven-compiler-plugin:jar:3.8.0
+[DEBUG]   Included: org.sonatype.sisu:sisu-inject-bean:jar:1.4.2
+[DEBUG]   Included: org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:2.0.4
+[DEBUG]   Included: org.sonatype.aether:aether-util:jar:1.7
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.14
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.7.1
+[DEBUG]   Included: org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3
+[DEBUG]   Included: org.sonatype.plexus:plexus-cipher:jar:1.4
+[DEBUG]   Included: org.apache.maven.shared:maven-shared-utils:jar:3.2.1
+[DEBUG]   Included: commons-io:commons-io:jar:2.5
+[DEBUG]   Included: org.apache.maven.shared:maven-shared-incremental:jar:1.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-java:jar:0.9.10
+[DEBUG]   Included: org.ow2.asm:asm:jar:6.2
+[DEBUG]   Included: com.thoughtworks.qdox:qdox:jar:2.0-M9
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-api:jar:2.8.4
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-manager:jar:2.8.4
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-javac:jar:2.8.4
+[DEBUG] Loading mojo org.apache.maven.plugins:maven-compiler-plugin:3.8.0:compile from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-compiler-plugin:3.8.0, parent: jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e]
+[DEBUG] Configuring mojo execution 'org.apache.maven.plugins:maven-compiler-plugin:3.8.0:compile:default-compile' with basic configurator -->
+[DEBUG]   (f) basedir = E:\h?c java\FileManagerApp
+[DEBUG]   (f) buildDirectory = E:\h?c java\FileManagerApp\target
+[DEBUG]   (f) compilePath = [E:\h?c java\FileManagerApp\target\classes, C:\Users\ACER\.m2\repository\org\openjfx\javafx-controls\21.0.2\javafx-controls-21.0.2.jar, C:\Users\ACER\.m2\repository\org\openjfx\javafx-controls\21.0.2\javafx-controls-21.0.2-win.jar, C:\Users\ACER\.m2\repository\org\openjfx\javafx-graphics\21.0.2\javafx-graphics-21.0.2.jar, C:\Users\ACER\.m2\repository\org\openjfx\javafx-graphics\21.0.2\javafx-graphics-21.0.2-win.jar, C:\Users\ACER\.m2\repository\org\openjfx\javafx-base\21.0.2\javafx-base-21.0.2.jar, C:\Users\ACER\.m2\repository\org\openjfx\javafx-base\21.0.2\javafx-base-21.0.2-win.jar, C:\Users\ACER\.m2\repository\org\openjfx\javafx-fxml\21.0.2\javafx-fxml-21.0.2.jar, C:\Users\ACER\.m2\repository\org\openjfx\javafx-fxml\21.0.2\javafx-fxml-21.0.2-win.jar]
+[DEBUG]   (f) compileSourceRoots = [E:\h?c java\FileManagerApp\src\main\java]
+[DEBUG]   (f) compilerId = javac
+[DEBUG]   (f) debug = true
+[DEBUG]   (f) encoding = UTF-8
+[DEBUG]   (f) failOnError = true
+[DEBUG]   (f) failOnWarning = false
+[DEBUG]   (f) forceJavacCompilerUse = false
+[DEBUG]   (f) fork = false
+[DEBUG]   (f) generatedSourcesDirectory = E:\h?c java\FileManagerApp\target\generated-sources\annotations
+[DEBUG]   (f) mojoExecution = org.apache.maven.plugins:maven-compiler-plugin:3.8.0:compile {execution: default-compile}
+[DEBUG]   (f) optimize = false
+[DEBUG]   (f) outputDirectory = E:\h?c java\FileManagerApp\target\classes
+[DEBUG]   (f) parameters = false
+[DEBUG]   (f) project = MavenProject: com.java_desktop_application.filemanager:FileManagerApp:1.0-SNAPSHOT @ E:\h?c java\FileManagerApp\pom.xml
+[DEBUG]   (f) projectArtifact = com.java_desktop_application.filemanager:FileManagerApp:jar:1.0-SNAPSHOT
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@1981d861
+[DEBUG]   (f) showDeprecation = false
+[DEBUG]   (f) showWarnings = false
+[DEBUG]   (f) skipMultiThreadWarning = false
+[DEBUG]   (f) source = 17
+[DEBUG]   (f) staleMillis = 0
+[DEBUG]   (s) target = 17
+[DEBUG]   (f) useIncrementalCompilation = true
+[DEBUG]   (f) verbose = false
+[DEBUG] -- end configuration --
+[DEBUG] Using compiler 'javac'.
+[DEBUG] Adding E:\h?c java\FileManagerApp\target\generated-sources\annotations to compile source roots:
+  E:\h?c java\FileManagerApp\src\main\java
+[DEBUG] New compile source roots:
+  E:\h?c java\FileManagerApp\src\main\java
+  E:\h?c java\FileManagerApp\target\generated-sources\annotations
+[DEBUG] CompilerReuseStrategy: reuseCreated
+[DEBUG] useIncrementalCompilation enabled
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] <<< javafx:0.0.8:run (default-cli) < process-classes @ FileManagerApp <<<
+[INFO] 
+[DEBUG] Dependency collection stats {ConflictMarker.analyzeTime=53800, ConflictMarker.markTime=32800, ConflictMarker.nodeCount=19, ConflictIdSorter.graphTime=15600, ConflictIdSorter.topsortTime=22100, ConflictIdSorter.conflictIdCount=10, ConflictIdSorter.conflictIdCycleCount=4, ConflictResolver.totalTime=292700, ConflictResolver.conflictItemCount=13, DfDependencyCollector.collectTime=468800, DfDependencyCollector.transformTime=434200}
+[DEBUG] com.java_desktop_application.filemanager:FileManagerApp:jar:1.0-SNAPSHOT
+[DEBUG]    junit:junit:jar:4.11:test
+[DEBUG]       org.hamcrest:hamcrest-core:jar:1.3:test
+[DEBUG]    org.openjfx:javafx-controls:jar:21.0.2:compile
+[DEBUG]       org.openjfx:javafx-controls:jar:win:21.0.2:compile
+[DEBUG]       org.openjfx:javafx-graphics:jar:21.0.2:compile
+[DEBUG]          org.openjfx:javafx-graphics:jar:win:21.0.2:compile
+[DEBUG]          org.openjfx:javafx-base:jar:21.0.2:compile
+[DEBUG]             org.openjfx:javafx-base:jar:win:21.0.2:compile
+[DEBUG]    org.openjfx:javafx-fxml:jar:21.0.2:compile
+[DEBUG]       org.openjfx:javafx-fxml:jar:win:21.0.2:compile
+[INFO] 
+[INFO] --- javafx:0.0.8:run (default-cli) @ FileManagerApp ---
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for repository.jboss.org (http://repository.jboss.org/maven2).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for snapshots.jboss.org (http://snapshots.jboss.org/maven2).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for oss.sonatype.org/jboss-snapshots (http://oss.sonatype.org/content/repositories/jboss-snapshots).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for codehaus-snapshots (http://nexus.codehaus.org/snapshots/).
+[DEBUG] Dependency collection stats {ConflictMarker.analyzeTime=95000, ConflictMarker.markTime=54700, ConflictMarker.nodeCount=96, ConflictIdSorter.graphTime=40800, ConflictIdSorter.topsortTime=22500, ConflictIdSorter.conflictIdCount=48, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=625000, ConflictResolver.conflictItemCount=94, DfDependencyCollector.collectTime=182810100, DfDependencyCollector.transformTime=854900}
+[DEBUG] org.openjfx:javafx-maven-plugin:jar:0.0.8
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:3.6.0:compile
+[DEBUG]       org.apache.maven:maven-model:jar:3.6.0:compile
+[DEBUG]       org.apache.maven:maven-artifact:jar:3.6.0:compile
+[DEBUG]       org.eclipse.sisu:org.eclipse.sisu.plexus:jar:0.3.3:compile
+[DEBUG]          javax.enterprise:cdi-api:jar:1.0:compile
+[DEBUG]             javax.annotation:jsr250-api:jar:1.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-utils:jar:3.1.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-classworlds:jar:2.5.2:compile
+[DEBUG]    org.codehaus.plexus:plexus-java:jar:0.9.11:compile
+[DEBUG]       org.ow2.asm:asm:jar:7.0-beta:compile
+[DEBUG]       com.thoughtworks.qdox:qdox:jar:2.0-M9:compile
+[DEBUG]    org.codehaus.plexus:plexus-archiver:jar:3.6.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-io:jar:3.0.1:compile
+[DEBUG]          commons-io:commons-io:jar:2.6:compile
+[DEBUG]       org.apache.commons:commons-compress:jar:1.16.1:compile
+[DEBUG]          org.objenesis:objenesis:jar:2.6:compile
+[DEBUG]       org.iq80.snappy:snappy:jar:0.4:compile
+[DEBUG]       org.tukaani:xz:jar:1.8:runtime
+[DEBUG]    org.apache.commons:commons-exec:jar:1.3:compile
+[DEBUG]    org.apache.maven:maven-core:jar:3.6.0:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:3.6.0:compile
+[DEBUG]       org.apache.maven:maven-settings-builder:jar:3.6.0:compile
+[DEBUG]          org.codehaus.plexus:plexus-interpolation:jar:1.25:compile
+[DEBUG]          org.sonatype.plexus:plexus-sec-dispatcher:jar:1.4:compile
+[DEBUG]             org.sonatype.plexus:plexus-cipher:jar:1.4:compile
+[DEBUG]       org.apache.maven:maven-builder-support:jar:3.6.0:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:3.6.0:compile
+[DEBUG]       org.apache.maven:maven-model-builder:jar:3.6.0:compile
+[DEBUG]       org.apache.maven:maven-resolver-provider:jar:3.6.0:compile
+[DEBUG]          org.slf4j:slf4j-api:jar:1.7.25:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-impl:jar:1.3.1:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-api:jar:1.3.1:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-spi:jar:1.3.1:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-util:jar:1.3.1:compile
+[DEBUG]       org.apache.maven.shared:maven-shared-utils:jar:3.2.1:compile
+[DEBUG]       org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.3.3:compile
+[DEBUG]       com.google.inject:guice:jar:no_aop:4.2.1:compile
+[DEBUG]          aopalliance:aopalliance:jar:1.0:compile
+[DEBUG]          com.google.guava:guava:jar:25.1-android:compile
+[DEBUG]             com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[DEBUG]             org.checkerframework:checker-compat-qual:jar:2.0.0:compile
+[DEBUG]             com.google.errorprone:error_prone_annotations:jar:2.1.3:compile
+[DEBUG]             com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[DEBUG]             org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[DEBUG]       javax.inject:javax.inject:jar:1:compile
+[DEBUG]       org.codehaus.plexus:plexus-component-annotations:jar:1.7.1:compile
+[DEBUG]       org.apache.commons:commons-lang3:jar:3.8.1:compile
+[DEBUG] Created new class realm plugin>org.openjfx:javafx-maven-plugin:0.0.8
+[DEBUG] Importing foreign packages into class realm plugin>org.openjfx:javafx-maven-plugin:0.0.8
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.openjfx:javafx-maven-plugin:0.0.8
+[DEBUG]   Included: org.openjfx:javafx-maven-plugin:jar:0.0.8
+[DEBUG]   Included: javax.enterprise:cdi-api:jar:1.0
+[DEBUG]   Included: javax.annotation:jsr250-api:jar:1.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.1.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-java:jar:0.9.11
+[DEBUG]   Included: org.ow2.asm:asm:jar:7.0-beta
+[DEBUG]   Included: com.thoughtworks.qdox:qdox:jar:2.0-M9
+[DEBUG]   Included: org.codehaus.plexus:plexus-archiver:jar:3.6.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-io:jar:3.0.1
+[DEBUG]   Included: commons-io:commons-io:jar:2.6
+[DEBUG]   Included: org.apache.commons:commons-compress:jar:1.16.1
+[DEBUG]   Included: org.objenesis:objenesis:jar:2.6
+[DEBUG]   Included: org.iq80.snappy:snappy:jar:0.4
+[DEBUG]   Included: org.tukaani:xz:jar:1.8
+[DEBUG]   Included: org.apache.commons:commons-exec:jar:1.3
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.25
+[DEBUG]   Included: org.sonatype.plexus:plexus-sec-dispatcher:jar:1.4
+[DEBUG]   Included: org.sonatype.plexus:plexus-cipher:jar:1.4
+[DEBUG]   Included: org.apache.maven:maven-builder-support:jar:3.6.0
+[DEBUG]   Included: org.apache.maven.shared:maven-shared-utils:jar:3.2.1
+[DEBUG]   Included: org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.3.3
+[DEBUG]   Included: com.google.inject:guice:jar:no_aop:4.2.1
+[DEBUG]   Included: aopalliance:aopalliance:jar:1.0
+[DEBUG]   Included: com.google.guava:guava:jar:25.1-android
+[DEBUG]   Included: com.google.code.findbugs:jsr305:jar:3.0.2
+[DEBUG]   Included: org.checkerframework:checker-compat-qual:jar:2.0.0
+[DEBUG]   Included: com.google.errorprone:error_prone_annotations:jar:2.1.3
+[DEBUG]   Included: com.google.j2objc:j2objc-annotations:jar:1.1
+[DEBUG]   Included: org.codehaus.mojo:animal-sniffer-annotations:jar:1.14
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.7.1
+[DEBUG]   Included: org.apache.commons:commons-lang3:jar:3.8.1
+[DEBUG] Loading mojo org.openjfx:javafx-maven-plugin:0.0.8:run from plugin realm ClassRealm[plugin>org.openjfx:javafx-maven-plugin:0.0.8, parent: jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e]
+[DEBUG] Configuring mojo execution 'org.openjfx:javafx-maven-plugin:0.0.8:run:default-cli' with basic configurator -->
+[DEBUG]   (f) async = false
+[DEBUG]   (f) asyncDestroyOnShutdown = true
+[DEBUG]   (f) basedir = E:\h?c java\FileManagerApp
+[DEBUG]   (f) builddir = E:\h?c java\FileManagerApp\target
+[DEBUG]   (f) compilePath = [E:\h?c java\FileManagerApp\target\classes, C:\Users\ACER\.m2\repository\org\openjfx\javafx-controls\21.0.2\javafx-controls-21.0.2.jar, C:\Users\ACER\.m2\repository\org\openjfx\javafx-controls\21.0.2\javafx-controls-21.0.2-win.jar, C:\Users\ACER\.m2\repository\org\openjfx\javafx-graphics\21.0.2\javafx-graphics-21.0.2.jar, C:\Users\ACER\.m2\repository\org\openjfx\javafx-graphics\21.0.2\javafx-graphics-21.0.2-win.jar, C:\Users\ACER\.m2\repository\org\openjfx\javafx-base\21.0.2\javafx-base-21.0.2.jar, C:\Users\ACER\.m2\repository\org\openjfx\javafx-base\21.0.2\javafx-base-21.0.2-win.jar, C:\Users\ACER\.m2\repository\org\openjfx\javafx-fxml\21.0.2\javafx-fxml-21.0.2.jar, C:\Users\ACER\.m2\repository\org\openjfx\javafx-fxml\21.0.2\javafx-fxml-21.0.2-win.jar]
+[DEBUG]   (f) executable = java
+[DEBUG]   (f) includePathExceptionsInClasspath = false
+[DEBUG]   (f) mainClass = com.java_desktop_application.filemanager.App
+[DEBUG]   (f) project = MavenProject: com.java_desktop_application.filemanager:FileManagerApp:1.0-SNAPSHOT @ E:\h?c java\FileManagerApp\pom.xml
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@1981d861
+[DEBUG]   (f) skip = false
+[DEBUG] -- end configuration --
+[DEBUG] Executable [C:\Program Files\Java\jdk-21\bin\java.exe]
+[DEBUG] Total dependencyArtifacts: 9
+[DEBUG] module descriptor path: null
+[DEBUG] Classpath:1
+[DEBUG]  E:\h?c java\FileManagerApp\target\classes
+[DEBUG] Modulepath: 8
+[DEBUG]  C:\Users\ACER\.m2\repository\org\openjfx\javafx-base\21.0.2\javafx-base-21.0.2-win.jar
+[DEBUG]  C:\Users\ACER\.m2\repository\org\openjfx\javafx-base\21.0.2\javafx-base-21.0.2.jar
+[DEBUG]  C:\Users\ACER\.m2\repository\org\openjfx\javafx-controls\21.0.2\javafx-controls-21.0.2-win.jar
+[DEBUG]  C:\Users\ACER\.m2\repository\org\openjfx\javafx-controls\21.0.2\javafx-controls-21.0.2.jar
+[DEBUG]  C:\Users\ACER\.m2\repository\org\openjfx\javafx-fxml\21.0.2\javafx-fxml-21.0.2-win.jar
+[DEBUG]  C:\Users\ACER\.m2\repository\org\openjfx\javafx-fxml\21.0.2\javafx-fxml-21.0.2.jar
+[DEBUG]  C:\Users\ACER\.m2\repository\org\openjfx\javafx-graphics\21.0.2\javafx-graphics-21.0.2-win.jar
+[DEBUG]  C:\Users\ACER\.m2\repository\org\openjfx\javafx-graphics\21.0.2\javafx-graphics-21.0.2.jar
+[DEBUG] pathElements: 9
+[DEBUG]  E:\h?c java\FileManagerApp\target\classes :: null
+[DEBUG]  C:\Users\ACER\.m2\repository\org\openjfx\javafx-base\21.0.2\javafx-base-21.0.2-win.jar :: javafx.base
+[DEBUG]  C:\Users\ACER\.m2\repository\org\openjfx\javafx-base\21.0.2\javafx-base-21.0.2.jar :: javafx.baseEmpty
+[DEBUG]  C:\Users\ACER\.m2\repository\org\openjfx\javafx-controls\21.0.2\javafx-controls-21.0.2-win.jar :: javafx.controls
+[DEBUG]  C:\Users\ACER\.m2\repository\org\openjfx\javafx-controls\21.0.2\javafx-controls-21.0.2.jar :: javafx.controlsEmpty
+[DEBUG]  C:\Users\ACER\.m2\repository\org\openjfx\javafx-fxml\21.0.2\javafx-fxml-21.0.2-win.jar :: javafx.fxml
+[DEBUG]  C:\Users\ACER\.m2\repository\org\openjfx\javafx-fxml\21.0.2\javafx-fxml-21.0.2.jar :: javafx.fxmlEmpty
+[DEBUG]  C:\Users\ACER\.m2\repository\org\openjfx\javafx-graphics\21.0.2\javafx-graphics-21.0.2-win.jar :: javafx.graphics
+[DEBUG]  C:\Users\ACER\.m2\repository\org\openjfx\javafx-graphics\21.0.2\javafx-graphics-21.0.2.jar :: javafx.graphicsEmpty
+[DEBUG] Executing command line: [C:\Program Files\Java\jdk-21\bin\java.exe, --module-path, C:\Users\ACER\.m2\repository\org\openjfx\javafx-base\21.0.2\javafx-base-21.0.2-win.jar;C:\Users\ACER\.m2\repository\org\openjfx\javafx-base\21.0.2\javafx-base-21.0.2.jar;C:\Users\ACER\.m2\repository\org\openjfx\javafx-controls\21.0.2\javafx-controls-21.0.2-win.jar;C:\Users\ACER\.m2\repository\org\openjfx\javafx-controls\21.0.2\javafx-controls-21.0.2.jar;C:\Users\ACER\.m2\repository\org\openjfx\javafx-fxml\21.0.2\javafx-fxml-21.0.2-win.jar;C:\Users\ACER\.m2\repository\org\openjfx\javafx-fxml\21.0.2\javafx-fxml-21.0.2.jar;C:\Users\ACER\.m2\repository\org\openjfx\javafx-graphics\21.0.2\javafx-graphics-21.0.2-win.jar;C:\Users\ACER\.m2\repository\org\openjfx\javafx-graphics\21.0.2\javafx-graphics-21.0.2.jar, --add-modules, javafx.base,javafx.controls,javafx.fxml,javafx.graphics, -classpath, E:\h?c java\FileManagerApp\target\classes, com.java_desktop_application.filemanager.App]
+Error: Could not find or load main class com.java_desktop_application.filemanager.App
+Caused by: java.lang.ClassNotFoundException: com.java_desktop_application.filemanager.App
+[ERROR] Command execution failed.
+org.apache.commons.exec.ExecuteException: Process exited with an error: 1 (Exit value: 1)
+    at org.apache.commons.exec.DefaultExecutor.executeInternal (DefaultExecutor.java:404)
+    at org.apache.commons.exec.DefaultExecutor.execute (DefaultExecutor.java:166)
+    at org.openjfx.JavaFXBaseMojo.executeCommandLine (JavaFXBaseMojo.java:567)
+    at org.openjfx.JavaFXBaseMojo.executeCommandLine (JavaFXBaseMojo.java:434)
+    at org.openjfx.JavaFXRunMojo.execute (JavaFXRunMojo.java:105)
+    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:126)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:328)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:316)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:212)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:174)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.access$000 (MojoExecutor.java:75)
+    at org.apache.maven.lifecycle.internal.MojoExecutor$1.run (MojoExecutor.java:162)
+    at org.apache.maven.plugin.DefaultMojosExecutionStrategy.execute (DefaultMojosExecutionStrategy.java:39)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:159)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:105)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:73)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:53)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:118)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:919)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:285)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:207)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke (Method.java:580)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+org.apache.commons.exec.ExecuteException: Process exited with an error: 1 (Exit value: 1)
+	at org.apache.commons.exec.DefaultExecutor.executeInternal(DefaultExecutor.java:404)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:166)
+	at org.openjfx.JavaFXBaseMojo.executeCommandLine(JavaFXBaseMojo.java:567)
+	at org.openjfx.JavaFXBaseMojo.executeCommandLine(JavaFXBaseMojo.java:434)
+	at org.openjfx.JavaFXRunMojo.execute(JavaFXRunMojo.java:105)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:126)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2(MojoExecutor.java:328)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute(MojoExecutor.java:316)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:212)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:174)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.access$000(MojoExecutor.java:75)
+	at org.apache.maven.lifecycle.internal.MojoExecutor$1.run(MojoExecutor.java:162)
+	at org.apache.maven.plugin.DefaultMojosExecutionStrategy.execute(DefaultMojosExecutionStrategy.java:39)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:159)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:105)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:73)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:53)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:118)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:261)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:173)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:101)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:919)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:285)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:207)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:255)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:201)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:362)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:314)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.328 s
+[INFO] Finished at: 2026-10-15T00:20:20+07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.openjfx:javafx-maven-plugin:0.0.8:run (default-cli) on project FileManagerApp: Error: Command execution failed. Process exited with an error: 1 (Exit value: 1) -> [Help 1]
+org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal org.openjfx:javafx-maven-plugin:0.0.8:run (default-cli) on project FileManagerApp: Error
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:333)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:316)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:212)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:174)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.access$000 (MojoExecutor.java:75)
+    at org.apache.maven.lifecycle.internal.MojoExecutor$1.run (MojoExecutor.java:162)
+    at org.apache.maven.plugin.DefaultMojosExecutionStrategy.execute (DefaultMojosExecutionStrategy.java:39)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:159)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:105)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:73)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:53)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:118)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:919)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:285)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:207)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke (Method.java:580)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+Caused by: org.apache.maven.plugin.MojoExecutionException: Error
+    at org.openjfx.JavaFXRunMojo.execute (JavaFXRunMojo.java:122)
+    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:126)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:328)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:316)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:212)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:174)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.access$000 (MojoExecutor.java:75)
+    at org.apache.maven.lifecycle.internal.MojoExecutor$1.run (MojoExecutor.java:162)
+    at org.apache.maven.plugin.DefaultMojosExecutionStrategy.execute (DefaultMojosExecutionStrategy.java:39)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:159)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:105)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:73)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:53)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:118)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:919)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:285)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:207)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke (Method.java:580)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+Caused by: org.apache.maven.plugin.MojoExecutionException: Command execution failed.
+    at org.openjfx.JavaFXRunMojo.execute (JavaFXRunMojo.java:116)
+    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:126)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:328)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:316)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:212)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:174)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.access$000 (MojoExecutor.java:75)
+    at org.apache.maven.lifecycle.internal.MojoExecutor$1.run (MojoExecutor.java:162)
+    at org.apache.maven.plugin.DefaultMojosExecutionStrategy.execute (DefaultMojosExecutionStrategy.java:39)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:159)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:105)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:73)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:53)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:118)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:919)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:285)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:207)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke (Method.java:580)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+Caused by: org.apache.commons.exec.ExecuteException: Process exited with an error: 1 (Exit value: 1)
+    at org.apache.commons.exec.DefaultExecutor.executeInternal (DefaultExecutor.java:404)
+    at org.apache.commons.exec.DefaultExecutor.execute (DefaultExecutor.java:166)
+    at org.openjfx.JavaFXBaseMojo.executeCommandLine (JavaFXBaseMojo.java:567)
+    at org.openjfx.JavaFXBaseMojo.executeCommandLine (JavaFXBaseMojo.java:434)
+    at org.openjfx.JavaFXRunMojo.execute (JavaFXRunMojo.java:105)
+    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:126)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:328)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:316)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:212)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:174)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.access$000 (MojoExecutor.java:75)
+    at org.apache.maven.lifecycle.internal.MojoExecutor$1.run (MojoExecutor.java:162)
+    at org.apache.maven.plugin.DefaultMojosExecutionStrategy.execute (DefaultMojosExecutionStrategy.java:39)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:159)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:105)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:73)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:53)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:118)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:919)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:285)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:207)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke (Method.java:580)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+[ERROR] 
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[DEBUG] Shutting down adapter factory; available factories [file-lock, rwlock-local, semaphore-local, noop]; available name mappers [discriminating, file-gaecv, file-gav, file-hgaecv, file-hgav, file-static, gaecv, gav, static]
+[DEBUG] Shutting down 'file-lock' factory
+[DEBUG] Shutting down 'rwlock-local' factory
+[DEBUG] Shutting down 'semaphore-local' factory
+[DEBUG] Shutting down 'noop' factory

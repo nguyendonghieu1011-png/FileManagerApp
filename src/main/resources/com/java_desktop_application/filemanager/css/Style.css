@@ -1,0 +1,285 @@
+/* =========================================================
+   TOOLBAR 1 - NAVIGATION BUTTON
+   ========================================================= */
+
+.nav_button {
+    -fx-background-color: lightgrey;
+    -fx-background-radius: 10px;
+    -fx-text-fill: black;
+}
+
+/* Khi rê chuột */
+.nav_button:hover {
+    -fx-background-color: lightgrey;
+}
+
+/* Khi nhấn */
+.nav_button:pressed {
+    -fx-background-color: lightgrey;
+}
+
+/* Khi được focus */
+.nav_button:focused {
+    -fx-background-color: lightgrey;
+    -fx-border-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+
+/* =========================================================
+   FILE PATH - COMBOBOX
+   ========================================================= */
+
+.path-combo-box {
+    -fx-pref-height: 33px;
+
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+
+    -fx-padding: 0 10px;
+}
+
+/* Hover */
+.path-combo-box:hover {
+    -fx-background-color: white;
+}
+
+/* Focus */
+.path-combo-box:focused {
+    -fx-background-color: white;
+    -fx-border-color: #cccccc;
+
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.search-field {
+    -fx-background-color: white;
+
+    -fx-border-color: darkgrey;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+/* Focus */
+.search-field:focused {
+    -fx-border-color: darkgrey;
+
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+
+/* =========================================================
+   TOOLBAR 2 - FUNCTION BUTTON
+   ========================================================= */
+
+.function_btn {
+    -fx-background-color: grey;
+    -fx-background-radius: 10px;
+    -fx-text-fill: white;
+}
+
+/* Hover */
+.function_btn:hover {
+    -fx-background-color: grey;
+}
+
+/* Pressed */
+.function_btn:pressed {
+    -fx-background-color: grey;
+}
+
+/* Focus */
+.function_btn:focused {
+    -fx-background-color: grey;
+    -fx-border-color: transparent;
+
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer_label {
+    -fx-background-color: grey;
+    -fx-text-fill: white;
+}
+
+
+/* =========================================================
+   SORT - COMBOBOX
+   ========================================================= */
+
+.function_combobox {
+    -fx-pref-height: 33px;
+
+    -fx-background-color: grey;
+    -fx-background-radius: 5px;
+
+    -fx-padding: 0 10px;
+
+    -fx-text-fill: white;
+}
+
+/* Hover */
+.function_combobox:hover {
+    -fx-background-color: grey;
+}
+
+/* Focus */
+.function_combobox:focused {
+    -fx-background-color: grey;
+    -fx-border-color: transparent;
+
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+
+/* =========================================================
+   COMBOBOX DROPDOWN
+   ========================================================= */
+
+/* Khung dropdown */
+.combo-box-popup .list-view {
+    -fx-background-color: #888888;
+    -fx-background-radius: 0px;
+}
+
+/* Từng item */
+.combo-box-popup .list-cell {
+    -fx-background-color: #888888;
+    -fx-text-fill: white;
+}
+
+/* Hover item */
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #777777;
+}
+
+/* Item đang được chọn */
+.combo-box-popup .list-cell:filled:selected {
+    -fx-background-color: #666666;
+    -fx-text-fill: white;
+}
+
+
+/* =========================================================
+   NEW - MENU BUTTON
+   ========================================================= */
+
+.function_menu {
+    -fx-background-color: grey;
+    -fx-background-radius: 5px;
+
+    -fx-text-fill: white;
+}
+
+/* Hover NEW */
+.function_menu:hover {
+    -fx-background-color: grey;
+}
+
+/* Khi nhấn NEW */
+.function_menu:pressed {
+    -fx-background-color: grey;
+}
+
+/* Focus NEW */
+.function_menu:focused {
+    -fx-background-color: grey;
+    -fx-border-color: transparent;
+
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+
+/* =========================================================
+   NEW - DROPDOWN MENU
+   ========================================================= */
+
+/* Khung dropdown của MenuButton */
+.context-menu {
+    -fx-background-color: #888888;
+    -fx-background-radius: 0px;
+}
+
+/* Item trong MenuButton */
+.menu-item {
+    -fx-background-color: #888888;
+}
+
+/* Chữ của item */
+.menu-item .label {
+    -fx-text-fill: white;
+}
+
+/* Hover item */
+.menu-item:hover {
+    -fx-background-color: #777777;
+}
+
+/* Item khi focus */
+.menu-item:focused {
+    -fx-background-color: #777777;
+}
+
+/* Chữ khi focus */
+.menu-item:focused .label {
+    -fx-text-fill: white;
+}
+
+/* =========================================================
+CENTER TABLE VIEW
+   ========================================================= */
+
+.table_view_layout .colum_header .label{
+    -fx-border-color: #cccccc;  /* Màu viền */
+    -fx-border-width: 0px 1px 0px 0px;      /* Độ dày viền */
+    -fx-border-radius: 0px;     /* Độ bo góc */
+}
+.table_view_layout .column-header-background {
+    -fx-background-color: #e0e0e0;
+}
+.table_view_layout .column-header {
+    -fx-background-color: #e0e0e0;
+
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+}
+/* Các ô dữ liệu trong TableView */
+.table_view_layout .table-cell {
+    -fx-background-color: white;
+
+    /* Viền bên phải của từng ô */
+    -fx-border-color: transparent black transparent transparent;
+    -fx-border-width: 0px 1px 0px 0px;
+    -fx-border-insets: 0px;
+}
+
+/* Màu nền của hàng khi rê chuột */
+.table_view_layout .table-row-cell:hover .table-cell {
+    -fx-background-color: #f2f2f2;
+}
+
+/* Giữ viền cột khi rê chuột */
+.table_view_layout .table-row-cell:hover .table-cell {
+    -fx-border-color: transparent black transparent transparent;
+    -fx-border-width: 0px 1px 0px 0px;
+}

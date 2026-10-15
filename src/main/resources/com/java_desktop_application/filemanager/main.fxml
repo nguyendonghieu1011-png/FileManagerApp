@@ -1,9 +1,303 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.java_desktop_application.filemanager.controller.MainController"
-            prefHeight="400.0" prefWidth="600.0">
-</AnchorPane>
+<BorderPane prefHeight="588.0" prefWidth="995.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.java_desktop_application.filemanager.controller.UIControllerTest">
+
+    <!-- ==================== CSS ==================== -->
+
+    <stylesheets>
+        <URL value="@css/Style.css" />
+    </stylesheets>
+
+
+    <!-- ==================== TOP ==================== -->
+
+    <top>
+
+        <VBox prefHeight="105.0">
+
+
+            <!-- ==================== TOOLBAR 1 ==================== -->
+
+            <HBox prefHeight="53.0" spacing="5.0" style="-fx-background-color: lightgrey;">
+
+                <children>
+
+
+                    <!-- Back -->
+
+                    <Button fx:id="backButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="31.0" styleClass="nav_button" text="Back" textAlignment="CENTER">
+
+                        <HBox.margin>
+                            <Insets left="15.0" top="10.0" />
+                        </HBox.margin>
+
+                    </Button>
+
+
+                    <!-- Forward -->
+
+                    <Button fx:id="forwardButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="65.0" styleClass="nav_button" text="Forward">
+
+                        <HBox.margin>
+                            <Insets left="5.0" top="10.0" />
+                        </HBox.margin>
+
+                    </Button>
+
+
+                    <!-- Up -->
+
+                    <Button fx:id="upButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="45.0" styleClass="nav_button" text="Up">
+
+                        <HBox.margin>
+                            <Insets left="5.0" top="10.0" />
+                        </HBox.margin>
+
+                    </Button>
+
+
+                    <!-- Refresh -->
+
+                    <Button fx:id="refreshButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="68.0" styleClass="nav_button" text="Refresh">
+
+                        <HBox.margin>
+                            <Insets left="5.0" top="10.0" />
+                        </HBox.margin>
+
+                    </Button>
+
+
+                    <!-- File Path -->
+
+                    <ComboBox fx:id="pathComboBox" maxWidth="1.7976931348623157E308" minWidth="200.0" prefHeight="33.0" prefWidth="450.0" promptText="Choose File Path" styleClass="path-combo-box" HBox.hgrow="ALWAYS">
+                        
+                        <HBox.margin>
+                            <Insets left="5.0" top="10.0" />
+                        </HBox.margin>
+
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
+
+                    </ComboBox>
+
+
+                    <!-- Search -->
+
+                    <TextField fx:id="searchField" maxWidth="400.0" prefHeight="33.0" prefWidth="228.0" promptText="Search" styleClass="search-field" HBox.hgrow="ALWAYS">
+
+                        <HBox.margin>
+                            <Insets left="5.0" right="15.0" top="10.0" />
+                        </HBox.margin>
+
+                    </TextField>
+
+                </children>
+
+            </HBox>
+
+
+            <!-- ==================== TOOLBAR 2 ==================== -->
+
+            <HBox prefHeight="52.0" spacing="5.0" style="-fx-background-color: grey;">
+
+                <children>
+
+
+                    <!-- NEW -->
+
+                    <MenuButton fx:id="newMenuButton" prefHeight="35.0" prefWidth="100.0" styleClass="function_menu" text="NEW">
+
+                        <items>
+
+                            <MenuItem text="Folder" />
+
+                            <MenuItem text="Text Document" />
+
+                        </items>
+
+                        <HBox.margin>
+                            <Insets left="15.0" top="7.0" />
+                        </HBox.margin>
+
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
+
+                    </MenuButton>
+
+
+                    <!-- Separator -->
+
+                    <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="0.0">
+
+                        <HBox.margin>
+                            <Insets left="7.0" />
+                        </HBox.margin>
+
+                    </Separator>
+
+
+                    <!-- Cut -->
+
+                    <Button fx:id="cutButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="42.0" styleClass="function_btn" text="Cut" textFill="WHITE">
+
+                        <HBox.margin>
+                            <Insets top="10.0" />
+                        </HBox.margin>
+
+                    </Button>
+
+
+                    <!-- Copy -->
+
+                    <Button fx:id="copyButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="42.0" styleClass="function_btn" text="Copy" textFill="WHITE">
+
+                        <HBox.margin>
+                            <Insets left="5.0" top="10.0" />
+                        </HBox.margin>
+
+                    </Button>
+
+
+                    <!-- Rename -->
+
+                    <Button fx:id="renameButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="63.0" styleClass="function_btn" text="Rename" textFill="WHITE">
+
+                        <HBox.margin>
+                            <Insets left="5.0" top="10.0" />
+                        </HBox.margin>
+
+                    </Button>
+
+
+                    <!-- Paste -->
+
+                    <Button fx:id="pasteButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="42.0" styleClass="function_btn" text="Paste" textFill="WHITE">
+
+                        <HBox.margin>
+                            <Insets left="5.0" top="10.0" />
+                        </HBox.margin>
+
+                    </Button>
+
+
+                    <!-- Delete -->
+
+                    <Button fx:id="deleteButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="42.0" styleClass="function_btn" text="Delete" textFill="WHITE">
+
+                        <HBox.margin>
+                            <Insets left="5.0" top="10.0" />
+                        </HBox.margin>
+
+                    </Button>
+
+
+                    <!-- Separator -->
+
+                    <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="0.0">
+
+                        <HBox.margin>
+                            <Insets left="10.0" />
+                        </HBox.margin>
+
+                    </Separator>
+
+
+                    <!-- Sort -->
+
+                    <ComboBox fx:id="sortComboBox" prefHeight="35.0" promptText="Sort" styleClass="function_combobox">
+
+                        <items>
+
+                            <FXCollections fx:factory="observableArrayList">
+
+                                <String fx:value="Name" />
+
+                                <String fx:value="Type" />
+
+                                <String fx:value="Size" />
+
+                                <String fx:value="Date Create" />
+
+                                <String fx:value="Date Modified" />
+
+                            </FXCollections>
+
+                        </items>
+
+                        <HBox.margin>
+                            <Insets top="8.0" />
+                        </HBox.margin>
+
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
+
+                    </ComboBox>
+
+                </children>
+
+            </HBox>
+
+        </VBox>
+
+    </top>
+
+
+    <!-- ==================== BOTTOM ==================== -->
+
+    <bottom>
+
+        <AnchorPane prefHeight="25.0" prefWidth="995.0" styleClass="footer_label" BorderPane.alignment="CENTER">
+
+            <children>
+
+                <Label text="Free Space: 87.7 GB (of 246 GB)" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+
+            </children>
+
+        </AnchorPane>
+
+    </bottom>
+
+    <!-- =============== CENTER =================== -->
+    <center>
+        <TableView fx:id="fileTableView" styleClass="table_view_layout">
+
+            <columns>
+                <TableColumn fx:id="nameColumn" prefWidth="256.0" text="Name" />
+
+                <TableColumn fx:id="sizeColumn" prefWidth="111.0" text="Size" />
+
+                <TableColumn fx:id="filesColumn" prefWidth="111.0" text="Files" />
+
+                <TableColumn fx:id="folderColumn" prefWidth="111.0" text="Folder" />
+
+                <TableColumn fx:id="dateModifiedColumn" prefWidth="150.0" text="Date Modified" />
+            </columns>
+
+        </TableView>
+    </center>
+
+
+</BorderPane>
