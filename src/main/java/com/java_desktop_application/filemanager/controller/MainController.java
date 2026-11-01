@@ -2,6 +2,11 @@ package com.java_desktop_application.filemanager.controller;
 
 import com.java_desktop_application.filemanager.model.FileItem;
 
+// Type
+import javax.swing.filechooser.FileSystemView;
+import java.util.HashMap;
+import java.util.Map;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -48,6 +53,7 @@ public class MainController {
     private TableColumn<FileItem, String> filesColumn;
     @FXML
     private TableColumn<FileItem, String> folderColumn;
+
     @FXML
     private TableColumn<FileItem, String> dateModifiedColumn;
 
@@ -90,16 +96,18 @@ public class MainController {
     // path đang truy cập
     private Path currentPath = Paths.get(System.getProperty("user.home"));
 
+//////////////////////////////////////////////////////////
     @FXML
     public void initialize() {
 
         // setCellValueFactory(): ORM từng column trên ui với các field trong FileItem
-        // model
+
         // setItems(): gắn data (.) items vào table trên ui
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         sizeColumn.setCellValueFactory(new PropertyValueFactory<>("size"));
         filesColumn.setCellValueFactory(new PropertyValueFactory<>("files"));
         folderColumn.setCellValueFactory(new PropertyValueFactory<>("folder"));
+        folderColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
         dateModifiedColumn.setCellValueFactory(new PropertyValueFactory<>("dateModified"));
         fileTableView.setItems(items);
         // Cấu hình hiệu ứng Cut / Copy
@@ -570,8 +578,30 @@ public class MainController {
         }
     }
 
-    // ===================== LOAD FILES =====================
 
+    // ===================== TYPE FILES =====================
+    private final Map<String, String> typeCache = new HashMap<>();
+
+    private String getTypeName(Path p, boolean isDir) {
+        if (isDir) return "File folder";
+
+        String name = p.getFileName().toString();
+        int dot = name.lastIndexOf('.');
+        String ext = (dot > 0) ? name.substring(dot).toLowerCase() : "";
+
+        // Cache theo đuôi file để không hỏi hệ điều hành lặp lại
+        return typeCache.computeIfAbsent(ext, k -> {
+            try {
+                // Lấy đúng tên loại file mà Windows hiển thị (Text Document, PDF File...)
+                String desc = FileSystemView.getFileSystemView()
+                        .getSystemTypeDescription(p.toFile());
+                if (desc != null && !desc.isBlank()) return desc;
+            } catch (Exception ignored) { }
+            return ext.isEmpty() ? "File" : ext.substring(1).toUpperCase() + " File";
+        });
+    }
+
+    // ===================== LOAD FILES =====================
     private void loadFiles(Path path) {
         items.clear();
         SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -585,9 +615,11 @@ public class MainController {
                     String size = isDir ? "" : formatSize(attr.size());
                     String files = isDir ? String.valueOf(countChildren(p, false)) : "";
                     String folder = isDir ? String.valueOf(countChildren(p, true)) : "";
+                    String type = getTypeName(p, isDir);
                     String date = fmt.format(new Date(attr.lastModifiedTime().toMillis()));
 
-                    items.add(new FileItem(p.getFileName().toString(), size, files, folder, date, p));
+                    items.add(new FileItem(p.getFileName().toString(),
+                            size, files, folder, type, date, p));
                 } catch (IOException ignored) {
                     // file bị khóa / bỏ qua
                 }

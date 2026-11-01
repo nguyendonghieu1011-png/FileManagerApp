@@ -5,15 +5,17 @@ public class FileItem {
     private final String size;
     private final String files;
     private final String folder;
+    private final String type;
     private final String dateModified;
     private final java.nio.file.Path path;
 
-    public FileItem(String name, String size, String files, String folder,
+    public FileItem(String name, String size, String files, String folder, String type,
                     String dateModified, java.nio.file.Path path) {
         this.name = name;
         this.size = size;
         this.files = files;
         this.folder = folder;
+        this.type = type;
         this.dateModified = dateModified;
         this.path = path;
     }
@@ -23,5 +25,6 @@ public class FileItem {
     public String getFiles() { return files; }
     public String getFolder() { return folder; }
     public String getDateModified() { return dateModified; }
+    public String getType() { return type; }
     public java.nio.file.Path getPath() { return path; }
 }
