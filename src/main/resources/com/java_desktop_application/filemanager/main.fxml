@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="588.0" prefWidth="995.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.java_desktop_application.filemanager.controller.UIControllerTest">
+<BorderPane prefHeight="588.0" prefWidth="995.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.java_desktop_application.filemanager.controller.MainController">
 
     <!-- ==================== CSS ==================== -->
 
@@ -44,11 +44,14 @@
 
                     <!-- Back -->
 
-                    <Button fx:id="backButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="31.0" styleClass="nav_button" text="Back" textAlignment="CENTER">
+                    <Button fx:id="backButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="74.0" styleClass="nav_button" text="Back" textAlignment="CENTER">
 
                         <HBox.margin>
                             <Insets left="15.0" top="10.0" />
                         </HBox.margin>
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
 
                     </Button>
 
@@ -60,6 +63,9 @@
                         <HBox.margin>
                             <Insets left="5.0" top="10.0" />
                         </HBox.margin>
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
 
                     </Button>
 
@@ -71,6 +77,9 @@
                         <HBox.margin>
                             <Insets left="5.0" top="10.0" />
                         </HBox.margin>
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
 
                     </Button>
 
@@ -82,13 +91,16 @@
                         <HBox.margin>
                             <Insets left="5.0" top="10.0" />
                         </HBox.margin>
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
 
                     </Button>
 
 
                     <!-- File Path -->
 
-                    <ComboBox fx:id="pathComboBox" maxWidth="1.7976931348623157E308" minWidth="200.0" prefHeight="33.0" prefWidth="450.0" promptText="Choose File Path" styleClass="path-combo-box" HBox.hgrow="ALWAYS">
+                    <ComboBox fx:id="pathComboBox" maxWidth="1.7976931348623157E308" minWidth="200.0" prefHeight="33.0" prefWidth="427.0" promptText="Choose File Path" styleClass="path-combo-box" HBox.hgrow="ALWAYS">
                         
                         <HBox.margin>
                             <Insets left="5.0" top="10.0" />
@@ -108,6 +120,9 @@
                         <HBox.margin>
                             <Insets left="5.0" right="15.0" top="10.0" />
                         </HBox.margin>
+                        <cursor>
+                            <Cursor fx:constant="TEXT" />
+                        </cursor>
 
                     </TextField>
 
@@ -153,7 +168,9 @@
                         <HBox.margin>
                             <Insets left="7.0" />
                         </HBox.margin>
-
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
                     </Separator>
 
 
@@ -164,18 +181,22 @@
                         <HBox.margin>
                             <Insets top="10.0" />
                         </HBox.margin>
-
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
                     </Button>
 
 
                     <!-- Copy -->
 
-                    <Button fx:id="copyButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="42.0" styleClass="function_btn" text="Copy" textFill="WHITE">
+                    <Button fx:id="copyButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="53.0" styleClass="function_btn" text="Copy" textFill="WHITE">
 
                         <HBox.margin>
                             <Insets left="5.0" top="10.0" />
                         </HBox.margin>
-
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
                     </Button>
 
 
@@ -186,29 +207,35 @@
                         <HBox.margin>
                             <Insets left="5.0" top="10.0" />
                         </HBox.margin>
-
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
                     </Button>
 
 
                     <!-- Paste -->
 
-                    <Button fx:id="pasteButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="42.0" styleClass="function_btn" text="Paste" textFill="WHITE">
+                    <Button fx:id="pasteButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="55.0" styleClass="function_btn" text="Paste" textFill="WHITE">
 
                         <HBox.margin>
                             <Insets left="5.0" top="10.0" />
                         </HBox.margin>
-
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
                     </Button>
 
 
                     <!-- Delete -->
 
-                    <Button fx:id="deleteButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="42.0" styleClass="function_btn" text="Delete" textFill="WHITE">
+                    <Button fx:id="deleteButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="77.0" styleClass="function_btn" text="Delete" textFill="WHITE">
 
                         <HBox.margin>
                             <Insets left="5.0" top="10.0" />
                         </HBox.margin>
-
+                        <cursor>
+                            <Cursor fx:constant="HAND" />
+                        </cursor>
                     </Button>
 
 
@@ -289,9 +316,9 @@
 
                 <TableColumn fx:id="sizeColumn" prefWidth="111.0" text="Size" />
 
-                <TableColumn fx:id="filesColumn" prefWidth="111.0" text="Files" />
+                <TableColumn fx:id="filesColumn" prefWidth="111.0" text="Files / Folders" />
 
-                <TableColumn fx:id="folderColumn" prefWidth="111.0" text="Folder" />
+                <TableColumn fx:id="folderColumn" prefWidth="111.0" text="Type" />
 
                 <TableColumn fx:id="dateModifiedColumn" prefWidth="150.0" text="Date Modified" />
             </columns>

@@ -11,6 +11,7 @@
 /* Khi rê chuột */
 .nav_button:hover {
     -fx-background-color: lightgrey;
+    cursor: hand;
 }
 
 /* Khi nhấn */
@@ -282,4 +283,61 @@ CENTER TABLE VIEW
 .table_view_layout .table-row-cell:hover .table-cell {
     -fx-border-color: transparent black transparent transparent;
     -fx-border-width: 0px 1px 0px 0px;
+}
+
+/* Dòng được chọn khi TableView đang có focus */
+.table_view_layout:focused .table-row-cell:filled:selected {
+    -fx-background-color: #0078D7;
+}
+
+/* Các ô bên trong dòng được chọn */
+.table_view_layout:focused .table-row-cell:filled:selected .table-cell {
+    -fx-background-color: #0078D7;
+    -fx-text-fill: white;
+}
+
+/* Dòng vẫn được đánh dấu khi TableView mất focus */
+.table_view_layout .table-row-cell:filled:selected {
+    -fx-background-color: #D6EAF8;
+}
+
+.table_view_layout .table-row-cell:filled:selected .table-cell {
+    -fx-background-color: #D6EAF8;
+    -fx-text-fill: #1F2937;
+}
+
+/* Hover trên dòng chưa được chọn */
+.table_view_layout .table-row-cell:filled:hover {
+    -fx-background-color: #E8F3FC;
+}
+
+/* Không để hover ghi đè màu của dòng đang chọn */
+.table_view_layout:focused .table-row-cell:filled:selected:hover {
+    -fx-background-color: #0078D7;
+}
+
+.table_view_layout:focused .table-row-cell:filled:selected:hover .table-cell {
+    -fx-background-color: #0078D7;
+    -fx-text-fill: white;
+}
+
+/* Làm mờ dòng file/folder đang được Cut */
+.table_view_layout .table-row-cell:cut {
+    -fx-opacity: 0.45;
+}
+
+/* Đánh dấu nhẹ dòng file/folder đang được Copy */
+.table_view_layout .table-row-cell:copy .table-cell {
+    -fx-background-color: #F3F8FF;
+}
+
+/* Viền xanh nhạt để nhận biết dòng Copy */
+.table_view_layout .table-row-cell:copy .table-cell {
+    -fx-border-color: transparent #D6E8FA transparent transparent;
+}
+
+/* Trạng thái Paste bị vô hiệu hóa */
+.function_btn:disabled {
+    -fx-opacity: 0.45;
+    -fx-cursor: default;
 }
