@@ -38,6 +38,20 @@
             <version>21.0.2</version>
         </dependency>
 
+        <!-- Ikonli: hỗ trợ hiển thị icon trong JavaFX -->
+        <dependency>
+            <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-javafx</artifactId>
+            <version>12.4.0</version>
+        </dependency>
+
+        <!-- Font Awesome 5: bộ icon -->
+        <dependency>
+            <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-fontawesome5-pack</artifactId>
+            <version>12.4.0</version>
+        </dependency>
+        
     </dependencies>
 
     <build>

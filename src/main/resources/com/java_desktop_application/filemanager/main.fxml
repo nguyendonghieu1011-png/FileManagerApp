@@ -33,7 +33,7 @@
 
                     <!-- Back -->
 
-                    <Button fx:id="backButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="74.0" styleClass="nav_button" text="Back" textAlignment="CENTER">
+                    <Button fx:id="backButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="74.0" styleClass="nav_button" textAlignment="CENTER" onAction="#handleBack">
 
                         <HBox.margin>
                             <Insets left="15.0" top="10.0" />
@@ -47,7 +47,7 @@
 
                     <!-- Forward -->
 
-                    <Button fx:id="forwardButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="65.0" styleClass="nav_button" text="Forward">
+                    <Button fx:id="forwardButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="65.0" styleClass="nav_button"  onAction="#handleForward">
 
                         <HBox.margin>
                             <Insets left="5.0" top="10.0" />
@@ -61,7 +61,7 @@
 
                     <!-- Up -->
 
-                    <Button fx:id="upButton" mnemonicParsing="false" onAction="#handleUp" prefHeight="33.0" prefWidth="45.0" styleClass="nav_button" text="Up">
+                    <Button fx:id="upButton" mnemonicParsing="false" onAction="#handleUp" prefHeight="33.0" prefWidth="45.0" styleClass="nav_button" >
 
                         <HBox.margin>
                             <Insets left="5.0" top="10.0" />
@@ -75,7 +75,7 @@
 
                     <!-- Refresh -->
 
-                    <Button fx:id="refreshButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="68.0" styleClass="nav_button" text="Refresh">
+                    <Button fx:id="refreshButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="68.0" styleClass="nav_button" onAction="#handleRefresh">
 
                         <HBox.margin>
                             <Insets left="5.0" top="10.0" />
@@ -165,7 +165,7 @@
 
                     <!-- Cut -->
 
-                    <Button fx:id="cutButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="42.0" styleClass="function_btn" text="Cut" textFill="WHITE">
+                    <Button fx:id="cutButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="75.0" minWidth="75.0" styleClass="function_btn" text="Cut" textFill="WHITE">
 
                         <HBox.margin>
                             <Insets top="10.0" />
@@ -178,7 +178,7 @@
 
                     <!-- Copy -->
 
-                    <Button fx:id="copyButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="53.0" styleClass="function_btn" text="Copy" textFill="WHITE">
+                    <Button fx:id="copyButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="85.0" minWidth="85.0" styleClass="function_btn" text="Copy" textFill="WHITE">
 
                         <HBox.margin>
                             <Insets left="5.0" top="10.0" />
@@ -191,7 +191,7 @@
 
                     <!-- Rename -->
 
-                    <Button fx:id="renameButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="63.0" styleClass="function_btn" text="Rename" textFill="WHITE">
+                    <Button fx:id="renameButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="105.0" minWidth="105.0" styleClass="function_btn" text="Rename" textFill="WHITE">
 
                         <HBox.margin>
                             <Insets left="5.0" top="10.0" />
@@ -204,7 +204,7 @@
 
                     <!-- Paste -->
 
-                    <Button fx:id="pasteButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="55.0" styleClass="function_btn" text="Paste" textFill="WHITE">
+                    <Button fx:id="pasteButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="85.0" minWidth="85.0" styleClass="function_btn" text="Paste" textFill="WHITE">
 
                         <HBox.margin>
                             <Insets left="5.0" top="10.0" />
@@ -217,7 +217,7 @@
 
                     <!-- Delete -->
 
-                    <Button fx:id="deleteButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="77.0" styleClass="function_btn" text="Delete" textFill="WHITE">
+                    <Button fx:id="deleteButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="90.0" minWidth="90.0" styleClass="function_btn" text="Delete" textFill="WHITE">
 
                         <HBox.margin>
                             <Insets left="5.0" top="10.0" />

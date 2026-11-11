@@ -6,6 +6,8 @@ import com.java_desktop_application.filemanager.model.FileItem;
 import javax.swing.filechooser.FileSystemView;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Deque;
+import java.util.ArrayDeque;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -40,6 +42,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Optional;
 import java.util.stream.Stream;
+import org.kordamp.ikonli.javafx.FontIcon;
+import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 
 public class MainController {
     // @FXML: annotation - liên kết các component tới các control tương ứng trong ui
@@ -73,6 +77,14 @@ public class MainController {
     private Button pasteButton;
     @FXML
     private Button deleteButton;
+    @FXML
+    private Button backButton;
+    @FXML
+    private Button forwardButton;
+    @FXML
+    private Button upButton;
+    @FXML
+    private Button refreshButton;
 
     // ===================== CUT / COPY STATE =====================
 
@@ -93,20 +105,81 @@ public class MainController {
     // update list khi ds changes
     private final ObservableList<FileItem> items = FXCollections.observableArrayList();
 
-    // path đang truy cập
+    // ===================== NAVIGATION HISTORY =====================
+
+    // Đường dẫn hiện tại
     private Path currentPath = Paths.get(System.getProperty("user.home"));
 
-//////////////////////////////////////////////////////////
+    // Lưu lịch sử các đường dẫn đã truy cập
+    private final Deque<Path> backStack = new ArrayDeque<>();
+
+    // Lưu lịch sử các đường dẫn có thể Forward
+    private final Deque<Path> forwardStack = new ArrayDeque<>();
+
+    //////////////////////////////////////////////////////////
     @FXML
     public void initialize() {
 
         // setCellValueFactory(): ORM từng column trên ui với các field trong FileItem
+        // ===================== NAVIGATION BUTTON ICONS =====================
+
+        // Back
+        FontIcon backIcon = new FontIcon(FontAwesomeSolid.ARROW_LEFT);
+        backIcon.setIconSize(16);
+        backButton.setGraphic(backIcon);
+
+        // Forward
+        FontIcon forwardIcon = new FontIcon(FontAwesomeSolid.ARROW_RIGHT);
+        forwardIcon.setIconSize(16);
+        forwardButton.setGraphic(forwardIcon);
+
+        // Up
+        FontIcon upIcon = new FontIcon(FontAwesomeSolid.ARROW_UP);
+        upIcon.setIconSize(16);
+        upButton.setGraphic(upIcon);
+
+        // Refresh
+        FontIcon refreshIcon = new FontIcon(FontAwesomeSolid.SYNC_ALT);
+        refreshIcon.setIconSize(16);
+        refreshButton.setGraphic(refreshIcon);
+        // ===================== FUNCTION BUTTON ICONS =====================
+
+        // Cut
+        FontIcon cutIcon = new FontIcon(FontAwesomeSolid.CUT);
+        cutIcon.setIconSize(15);
+        cutButton.setGraphic(cutIcon);
+
+        // Copy
+        FontIcon copyIcon = new FontIcon(FontAwesomeSolid.COPY);
+        copyIcon.setIconSize(15);
+        copyButton.setGraphic(copyIcon);
+
+        // Rename
+        FontIcon renameIcon = new FontIcon(FontAwesomeSolid.EDIT);
+        renameIcon.setIconSize(15);
+        renameButton.setGraphic(renameIcon);
+
+        // Paste
+        FontIcon pasteIcon = new FontIcon(FontAwesomeSolid.PASTE);
+        pasteIcon.setIconSize(15);
+        pasteButton.setGraphic(pasteIcon);
+
+        // Delete
+        FontIcon deleteIcon = new FontIcon(FontAwesomeSolid.TRASH_ALT);
+        deleteIcon.setIconSize(15);
+        deleteButton.setGraphic(deleteIcon);
+
+        // Khoảng cách giữa icon và chữ
+        cutButton.setGraphicTextGap(6);
+        copyButton.setGraphicTextGap(6);
+        renameButton.setGraphicTextGap(6);
+        pasteButton.setGraphicTextGap(6);
+        deleteButton.setGraphicTextGap(6);
 
         // setItems(): gắn data (.) items vào table trên ui
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         sizeColumn.setCellValueFactory(new PropertyValueFactory<>("size"));
         filesColumn.setCellValueFactory(new PropertyValueFactory<>("files"));
-        folderColumn.setCellValueFactory(new PropertyValueFactory<>("folder"));
         folderColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
         dateModifiedColumn.setCellValueFactory(new PropertyValueFactory<>("dateModified"));
         fileTableView.setItems(items);
@@ -161,10 +234,88 @@ public class MainController {
         navigateTo(currentPath);
     }
 
+    // Điều hướng thông thường: có lưu lịch sử
     private void navigateTo(Path path) {
-        currentPath = path.toAbsolutePath().normalize();
+        navigateTo(path, true);
+    }
+
+    // Điều hướng có tùy chọn lưu lịch sử
+    private void navigateTo(Path path, boolean addHistory) {
+
+        Path targetPath = path.toAbsolutePath().normalize();
+
+        // Không làm gì nếu vẫn ở thư mục hiện tại
+        if (targetPath.equals(currentPath)) {
+            return;
+        }
+
+        // Lưu đường dẫn hiện tại vào lịch sử Back
+        if (addHistory) {
+            backStack.push(currentPath);
+
+            // Khi chuyển sang một đường dẫn mới,
+            // lịch sử Forward cũ không còn hợp lệ
+            forwardStack.clear();
+        }
+
+        currentPath = targetPath;
+
         loadFiles(currentPath);
+
         pathComboBox.setValue(currentPath.toString());
+
+        updateNavigationButtons();
+    }
+
+    @FXML
+    private void handleBack() {
+
+        if (backStack.isEmpty()) {
+            return;
+        }
+
+        // Lưu vị trí hiện tại để có thể Forward
+        forwardStack.push(currentPath);
+
+        // Lấy đường dẫn trước đó
+        Path previousPath = backStack.pop();
+
+        // Điều hướng nhưng không ghi thêm lịch sử
+        navigateTo(previousPath, false);
+    }
+
+    @FXML
+    private void handleForward() {
+
+        if (forwardStack.isEmpty()) {
+            return;
+        }
+
+        // Lưu vị trí hiện tại để có thể Back
+        backStack.push(currentPath);
+
+        // Lấy đường dẫn tiếp theo
+        Path nextPath = forwardStack.pop();
+
+        // Điều hướng nhưng không ghi thêm lịch sử
+        navigateTo(nextPath, false);
+    }
+
+    @FXML
+    private void handleRefresh() {
+
+        // Tải lại danh sách file và folder
+        loadFiles(currentPath);
+
+        // Cập nhật giao diện
+        fileTableView.refresh();
+    }
+
+    private void updateNavigationButtons() {
+
+        backButton.setDisable(backStack.isEmpty());
+
+        forwardButton.setDisable(forwardStack.isEmpty());
     }
 
     @FXML
@@ -578,12 +729,12 @@ public class MainController {
         }
     }
 
-
     // ===================== TYPE FILES =====================
     private final Map<String, String> typeCache = new HashMap<>();
 
     private String getTypeName(Path p, boolean isDir) {
-        if (isDir) return "File folder";
+        if (isDir)
+            return "File folder";
 
         String name = p.getFileName().toString();
         int dot = name.lastIndexOf('.');
@@ -595,8 +746,10 @@ public class MainController {
                 // Lấy đúng tên loại file mà Windows hiển thị (Text Document, PDF File...)
                 String desc = FileSystemView.getFileSystemView()
                         .getSystemTypeDescription(p.toFile());
-                if (desc != null && !desc.isBlank()) return desc;
-            } catch (Exception ignored) { }
+                if (desc != null && !desc.isBlank())
+                    return desc;
+            } catch (Exception ignored) {
+            }
             return ext.isEmpty() ? "File" : ext.substring(1).toUpperCase() + " File";
         });
     }
@@ -613,13 +766,27 @@ public class MainController {
                     boolean isDir = attr.isDirectory();
 
                     String size = isDir ? "" : formatSize(attr.size());
-                    String files = isDir ? String.valueOf(countChildren(p, false)) : "";
-                    String folder = isDir ? String.valueOf(countChildren(p, true)) : "";
+                    String filesFolders = "";
+
+                    if (isDir) {
+                        long fileCount = countChildren(p, false);
+                        long folderCount = countChildren(p, true);
+
+                        if (fileCount == 0 && folderCount == 0) {
+                            filesFolders = "Empty";
+                        } else if (fileCount == 0) {
+                            filesFolders = folderCount + " Folders";
+                        } else if (folderCount == 0) {
+                            filesFolders = fileCount + " Files";
+                        } else {
+                            filesFolders = fileCount + " Files, " + folderCount + " Folders";
+                        }
+                    }
                     String type = getTypeName(p, isDir);
                     String date = fmt.format(new Date(attr.lastModifiedTime().toMillis()));
 
                     items.add(new FileItem(p.getFileName().toString(),
-                            size, files, folder, type, date, p));
+                            size, filesFolders, "", type, date, p));
                 } catch (IOException ignored) {
                     // file bị khóa / bỏ qua
                 }
