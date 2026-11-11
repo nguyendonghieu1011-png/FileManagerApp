@@ -45,6 +45,10 @@ import java.util.stream.Stream;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
+import javafx.scene.control.TextField;
+
 public class MainController {
     // @FXML: annotation - liên kết các component tới các control tương ứng trong ui
     @FXML
@@ -61,9 +65,17 @@ public class MainController {
     @FXML
     private TableColumn<FileItem, String> dateModifiedColumn;
 
+
     // choose path
     @FXML
     private ComboBox<String> pathComboBox;
+
+
+    @FXML
+    private ComboBox<String> searchBox;
+
+    // Danh sách lưu lịch sử tìm kiếm
+    private final ObservableList<String> searchHistory = FXCollections.observableArrayList();
 
     // ===================== BUTTONS =====================
 
@@ -182,7 +194,88 @@ public class MainController {
         filesColumn.setCellValueFactory(new PropertyValueFactory<>("files"));
         folderColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
         dateModifiedColumn.setCellValueFactory(new PropertyValueFactory<>("dateModified"));
-        fileTableView.setItems(items);
+        //fileTableView.setItems(items);
+
+       // tìm kiếm 
+        
+        // 1. Cấu hình giao diện và dữ liệu cho ComboBox tìm kiếm
+        if (searchBox != null) {
+            searchBox.setEditable(true);
+            searchBox.setItems(searchHistory);
+
+            // 2. Cho phép xóa từng từ khóa trong dropdown (vẽ thêm nút X)
+            searchBox.setCellFactory(listView -> new javafx.scene.control.ListCell<String>() {
+                private final Button deleteBtn = new Button("X");
+                private final javafx.scene.layout.HBox hbox = new javafx.scene.layout.HBox();
+                private final javafx.scene.control.Label textLabel = new javafx.scene.control.Label();
+
+                {
+                    deleteBtn.setStyle("-fx-text-fill: red; -fx-background-color: transparent; -fx-cursor: hand;");
+                    hbox.setSpacing(10);
+                    hbox.getChildren().addAll(textLabel, deleteBtn);
+                    javafx.scene.layout.HBox.setHgrow(textLabel, javafx.scene.layout.Priority.ALWAYS);
+                    
+                    deleteBtn.setOnAction(e -> {
+                        String itemText = getItem();
+                        if (itemText != null) {
+                            searchHistory.remove(itemText);
+                            e.consume(); // Chặn sự kiện click nhầm vào item khi bấm xóa
+                        }
+                    });
+                }
+
+                @Override
+                protected void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty || item == null) {
+                        setGraphic(null);
+                    } else {
+                        textLabel.setText(item);
+                        setGraphic(hbox);
+                    }
+                }
+            });
+
+            // 3. Ghi nhận lịch sử khi nhấn Enter
+            searchBox.setOnAction(event -> {
+                String query = searchBox.getEditor().getText().trim();
+                if (!query.isEmpty()) {
+                    // Nếu từ khóa đã có, xóa đi để đẩy nó lên đầu danh sách
+                    searchHistory.remove(query); 
+                    searchHistory.add(0, query);
+                    
+                    // Giới hạn bộ nhớ: chỉ lưu 10 từ khóa gần nhất
+                    if (searchHistory.size() > 10) {
+                        searchHistory.remove(10);
+                    }
+                }
+            });
+        }
+
+        // 4. Logic lọc file (Filter) dựa trên text đang nhập trong ComboBox
+        FilteredList<FileItem> filteredData = new FilteredList<>(items, b -> true);
+
+        if (searchBox != null) {
+            // Lắng nghe sự thay đổi text trong ô Editor của ComboBox
+            searchBox.getEditor().textProperty().addListener((observable, oldValue, newValue) -> {
+                filteredData.setPredicate(fileItem -> {
+                    if (newValue == null || newValue.isBlank()) {
+                        return true;
+                    }
+                    String lowerCaseFilter = newValue.toLowerCase();
+                    if (fileItem.getName().toLowerCase().contains(lowerCaseFilter)) {
+                        return true; 
+                    } 
+                    return false; 
+                });
+            });
+        }
+
+        // Bọc vào SortedList để hỗ trợ click sắp xếp cột
+        SortedList<FileItem> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(fileTableView.comparatorProperty());
+        fileTableView.setItems(sortedData);
+
         // Cấu hình hiệu ứng Cut / Copy
         configureCutRowStyle();
 
