@@ -197,29 +197,112 @@ public class MainController {
         //fileTableView.setItems(items);
 
        // tìm kiếm 
-        
-        // 1. Cấu hình giao diện và dữ liệu cho ComboBox tìm kiếm
+// ------------------ BẮT ĐẦU PHẦN TÌM KIẾM ------------------
+        FilteredList<FileItem> filteredData = new FilteredList<>(items, b -> true);
+
         if (searchBox != null) {
             searchBox.setEditable(true);
             searchBox.setItems(searchHistory);
+            // 0. Thêm nút X xóa nhanh nội dung đang nhập trong thanh tìm kiếm
+            if (searchBox.getParent() instanceof javafx.scene.layout.HBox parentHBox) {
+                int index = parentHBox.getChildren().indexOf(searchBox);
+                javafx.scene.layout.StackPane searchWrapper = new javafx.scene.layout.StackPane();
 
-            // 2. Cho phép xóa từng từ khóa trong dropdown (vẽ thêm nút X)
+                // Giữ nguyên kích thước và margin cũ của searchBox trên thanh Toolbar
+                searchWrapper.setMaxWidth(searchBox.getMaxWidth());
+                searchWrapper.setPrefWidth(searchBox.getPrefWidth());
+                searchWrapper.setMinHeight(searchBox.getPrefHeight());
+                searchWrapper.setPrefHeight(searchBox.getPrefHeight());
+                searchWrapper.setMaxHeight(searchBox.getPrefHeight());
+                javafx.scene.layout.HBox.setHgrow(searchWrapper, javafx.scene.layout.HBox.getHgrow(searchBox));
+                javafx.scene.layout.HBox.setMargin(searchWrapper, javafx.scene.layout.HBox.getMargin(searchBox));
+
+                javafx.scene.layout.HBox.setMargin(searchBox, javafx.geometry.Insets.EMPTY);
+                searchBox.setMaxWidth(Double.MAX_VALUE);
+
+                // Tạo nút X bằng FontIcon có sẵn trong dự án
+                Button clearSearchBtn = new Button();
+                FontIcon clearIcon = new FontIcon(FontAwesomeSolid.TIMES);
+                clearIcon.setIconSize(12);
+                clearSearchBtn.setGraphic(clearIcon);
+                clearSearchBtn.setFocusTraversable(false);
+                clearSearchBtn.setStyle("-fx-background-color: transparent; -fx-cursor: hand; -fx-padding: 2 5 2 5; -fx-opacity: 0.6;");
+                clearSearchBtn.setOnMouseEntered(e -> clearSearchBtn.setStyle("-fx-background-color: transparent; -fx-cursor: hand; -fx-padding: 2 5 2 5; -fx-opacity: 1.0;"));
+                clearSearchBtn.setOnMouseExited(e -> clearSearchBtn.setStyle("-fx-background-color: transparent; -fx-cursor: hand; -fx-padding: 2 5 2 5; -fx-opacity: 0.6;"));
+
+                // Đặt nút X nằm bên phải ô nhập liệu (cách mép phải 28px để tránh đè lên mũi tên dropdown)
+                javafx.scene.layout.StackPane.setAlignment(clearSearchBtn, javafx.geometry.Pos.CENTER_RIGHT);
+                javafx.scene.layout.StackPane.setMargin(clearSearchBtn, new javafx.geometry.Insets(0, 28, 0, 0));
+
+                // Chừa khoảng trống bên phải ô gõ chữ để từ khóa dài không đè lên nút X
+                searchBox.getEditor().setStyle("-fx-padding: 4 24 4 7;");
+
+                // Chỉ hiển thị nút X khi ô tìm kiếm có nội dung
+                clearSearchBtn.visibleProperty().bind(searchBox.getEditor().textProperty().isNotEmpty());
+                clearSearchBtn.managedProperty().bind(clearSearchBtn.visibleProperty());
+
+                // Xóa nhanh nội dung và trả focus lại cho ô tìm kiếm
+                clearSearchBtn.setOnAction(e -> {
+                    searchBox.getEditor().clear();
+                    searchBox.getSelectionModel().clearSelection();
+                    searchBox.getEditor().requestFocus();
+                });
+
+                // Thay thế searchBox bằng searchWrapper trên thanh Toolbar TRƯỚC
+                parentHBox.getChildren().set(index, searchWrapper);
+                // Sau đó mới đưa searchBox và nút X vào bên trong searchWrapper
+                searchWrapper.getChildren().addAll(searchBox, clearSearchBtn);
+            }
+
+            // 1. Vẽ từng dòng lịch sử: bấm vào dòng để điền nhanh, bấm X đỏ để xóa
             searchBox.setCellFactory(listView -> new javafx.scene.control.ListCell<String>() {
                 private final Button deleteBtn = new Button("X");
-                private final javafx.scene.layout.HBox hbox = new javafx.scene.layout.HBox();
+                private final javafx.scene.layout.BorderPane rowPane = new javafx.scene.layout.BorderPane();
                 private final javafx.scene.control.Label textLabel = new javafx.scene.control.Label();
 
                 {
-                    deleteBtn.setStyle("-fx-text-fill: red; -fx-background-color: transparent; -fx-cursor: hand;");
-                    hbox.setSpacing(10);
-                    hbox.getChildren().addAll(textLabel, deleteBtn);
-                    javafx.scene.layout.HBox.setHgrow(textLabel, javafx.scene.layout.Priority.ALWAYS);
-                    
-                    deleteBtn.setOnAction(e -> {
+                    deleteBtn.setStyle("-fx-text-fill: red; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-weight: bold; -fx-padding: 0 4 0 8;");
+                    javafx.scene.layout.BorderPane.setAlignment(textLabel, javafx.geometry.Pos.CENTER_LEFT);
+                    javafx.scene.layout.BorderPane.setAlignment(deleteBtn, javafx.geometry.Pos.CENTER_RIGHT);
+                    rowPane.setLeft(textLabel);
+                    rowPane.setRight(deleteBtn);
+                    rowPane.setPickOnBounds(true);
+
+                    // Bấm nút X để xóa đúng từ khóa đó mà không làm mất chữ đang nhập
+                    deleteBtn.addEventFilter(javafx.scene.input.MouseEvent.MOUSE_PRESSED, e -> {
+                        e.consume();
                         String itemText = getItem();
                         if (itemText != null) {
+                            String currentText = searchBox.getEditor().getText();
                             searchHistory.remove(itemText);
-                            e.consume(); // Chặn sự kiện click nhầm vào item khi bấm xóa
+                            javafx.application.Platform.runLater(() -> {
+                                searchBox.getEditor().setText(currentText);
+                                if (currentText != null) {
+                                    searchBox.getEditor().positionCaret(currentText.length());
+                                }
+                            });
+                        }
+                    });
+
+                    // Bấm vào bất kỳ chỗ nào trên dòng (trừ nút X) để điền nhanh lên ô tìm kiếm
+                    this.addEventFilter(javafx.scene.input.MouseEvent.MOUSE_PRESSED, e -> {
+                        javafx.scene.Node target = (javafx.scene.Node) e.getTarget();
+                        while (target != null && target != this) {
+                            if (target == deleteBtn) {
+                                return;
+                            }
+                            target = target.getParent();
+                        }
+
+                        if (!isEmpty() && getItem() != null) {
+                            String selected = getItem();
+                            e.consume();
+                            javafx.application.Platform.runLater(() -> {
+                                searchBox.hide();
+                                searchBox.getEditor().setText(selected);
+                                searchBox.getEditor().positionCaret(selected.length());
+                                searchBox.getEditor().requestFocus();
+                            });
                         }
                     });
                 }
@@ -228,54 +311,53 @@ public class MainController {
                 protected void updateItem(String item, boolean empty) {
                     super.updateItem(item, empty);
                     if (empty || item == null) {
+                        setText(null);
                         setGraphic(null);
                     } else {
                         textLabel.setText(item);
-                        setGraphic(hbox);
+                        setText(null);
+                        setGraphic(rowPane);
                     }
                 }
             });
 
-            // 3. Ghi nhận lịch sử khi nhấn Enter
-            searchBox.setOnAction(event -> {
-                String query = searchBox.getEditor().getText().trim();
-                if (!query.isEmpty()) {
-                    // Nếu từ khóa đã có, xóa đi để đẩy nó lên đầu danh sách
-                    searchHistory.remove(query); 
-                    searchHistory.add(0, query);
-                    
-                    // Giới hạn bộ nhớ: chỉ lưu 10 từ khóa gần nhất
-                    if (searchHistory.size() > 10) {
-                        searchHistory.remove(10);
+            // 2. Dùng KEY_RELEASED để bắt phím Enter (lưu tối đa 5 từ khóa gần nhất)
+            int maxHistory = 5;
+            searchBox.getEditor().addEventHandler(javafx.scene.input.KeyEvent.KEY_RELEASED, event -> {
+                if (event.getCode() == javafx.scene.input.KeyCode.ENTER) {
+                    String query = searchBox.getEditor().getText();
+                    if (query != null && !query.isBlank()) {
+                        String trimmed = query.trim();
+                        searchHistory.remove(trimmed);
+                        searchHistory.add(0, trimmed);
+                        while (searchHistory.size() > maxHistory) {
+                            searchHistory.remove(searchHistory.size() - 1);
+                        }
+                        javafx.application.Platform.runLater(() -> {
+                            searchBox.getEditor().setText(trimmed);
+                            searchBox.getEditor().positionCaret(trimmed.length());
+                        });
                     }
                 }
             });
-        }
 
-        // 4. Logic lọc file (Filter) dựa trên text đang nhập trong ComboBox
-        FilteredList<FileItem> filteredData = new FilteredList<>(items, b -> true);
-
-        if (searchBox != null) {
-            // Lắng nghe sự thay đổi text trong ô Editor của ComboBox
+            // 3. Lọc file trên bảng theo từ khóa đang nhập hoặc vừa chọn từ lịch sử
             searchBox.getEditor().textProperty().addListener((observable, oldValue, newValue) -> {
                 filteredData.setPredicate(fileItem -> {
                     if (newValue == null || newValue.isBlank()) {
                         return true;
                     }
                     String lowerCaseFilter = newValue.toLowerCase();
-                    if (fileItem.getName().toLowerCase().contains(lowerCaseFilter)) {
-                        return true; 
-                    } 
-                    return false; 
+                    return fileItem.getName().toLowerCase().contains(lowerCaseFilter);
                 });
             });
         }
 
-        // Bọc vào SortedList để hỗ trợ click sắp xếp cột
+        // 4. Gắn danh sách đã lọc và sắp xếp vào TableView
         SortedList<FileItem> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(fileTableView.comparatorProperty());
         fileTableView.setItems(sortedData);
-
+        // ------------------ KẾT THÚC PHẦN TÌM KIẾM ------------------
         // Cấu hình hiệu ứng Cut / Copy
         configureCutRowStyle();
 
