@@ -104,17 +104,15 @@
 
                     <!-- Search -->
 
-                    <TextField fx:id="searchField" maxWidth="400.0" prefHeight="33.0" prefWidth="228.0" promptText="Search" styleClass="search-field" HBox.hgrow="ALWAYS">
-
+                    <ComboBox fx:id="searchBox" editable="true" maxWidth="400.0" prefHeight="33.0" prefWidth="228.0" promptText="Search" styleClass="search-field" HBox.hgrow="ALWAYS">
                         <HBox.margin>
                             <Insets left="5.0" right="15.0" top="10.0" />
                         </HBox.margin>
                         <cursor>
                             <Cursor fx:constant="TEXT" />
                         </cursor>
-
-                    </TextField>
-
+                    </ComboBox>
+                    
                 </children>
 
             </HBox>
