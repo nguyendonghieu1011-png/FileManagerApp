@@ -111,6 +111,12 @@
     -fx-faint-focus-color: transparent;
 }
 
+/* Trạng thái Paste bị vô hiệu hóa */
+.function_btn:disabled {
+    -fx-opacity: 0.45;
+    -fx-cursor: default;
+}
+
 
 /* =========================================================
    FOOTER
@@ -334,10 +340,4 @@ CENTER TABLE VIEW
 /* Viền xanh nhạt để nhận biết dòng Copy */
 .table_view_layout .table-row-cell:copy .table-cell {
     -fx-border-color: transparent #D6E8FA transparent transparent;
-}
-
-/* Trạng thái Paste bị vô hiệu hóa */
-.function_btn:disabled {
-    -fx-opacity: 0.45;
-    -fx-cursor: default;
 }

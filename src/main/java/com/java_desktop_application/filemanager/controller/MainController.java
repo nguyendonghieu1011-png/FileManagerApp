@@ -8,6 +8,17 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Deque;
 import java.util.ArrayDeque;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Optional;
+import java.util.stream.Stream;
+import java.text.DecimalFormat;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,27 +40,22 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import javafx.scene.control.Label;
 import javafx.scene.control.ComboBox;
-import java.io.File;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Optional;
-import java.util.stream.Stream;
-import org.kordamp.ikonli.javafx.FontIcon;
-import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
-
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TableCell;
+import javafx.scene.layout.HBox;
+import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
+
+import org.kordamp.ikonli.Ikon;
+import org.kordamp.ikonli.javafx.FontIcon;
+import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 
 public class MainController {
+
     // @FXML: annotation - liên kết các component tới các control tương ứng trong ui
     @FXML
     private TableView<FileItem> fileTableView;
@@ -64,21 +70,20 @@ public class MainController {
 
     @FXML
     private TableColumn<FileItem, String> dateModifiedColumn;
-
-
     // choose path
     @FXML
     private ComboBox<String> pathComboBox;
-
-
     @FXML
     private ComboBox<String> searchBox;
-
+    @FXML
+    private ComboBox<String> sortComboBox;
+    // Footer - thông tin dung lượng ổ đĩa
+    @FXML
+    private Label diskSpaceLabel;
     // Danh sách lưu lịch sử tìm kiếm
     private final ObservableList<String> searchHistory = FXCollections.observableArrayList();
 
     // ===================== BUTTONS =====================
-
     @FXML
     private Button cutButton;
     @FXML
@@ -99,7 +104,6 @@ public class MainController {
     private Button refreshButton;
 
     // ===================== CUT / COPY STATE =====================
-
     // Trạng thái CSS cho dòng đang Cut
     private static final PseudoClass CUT_PSEUDO_CLASS = PseudoClass.getPseudoClass("cut");
 
@@ -118,7 +122,6 @@ public class MainController {
     private final ObservableList<FileItem> items = FXCollections.observableArrayList();
 
     // ===================== NAVIGATION HISTORY =====================
-
     // Đường dẫn hiện tại
     private Path currentPath = Paths.get(System.getProperty("user.home"));
 
@@ -134,7 +137,6 @@ public class MainController {
 
         // setCellValueFactory(): ORM từng column trên ui với các field trong FileItem
         // ===================== NAVIGATION BUTTON ICONS =====================
-
         // Back
         FontIcon backIcon = new FontIcon(FontAwesomeSolid.ARROW_LEFT);
         backIcon.setIconSize(16);
@@ -190,14 +192,15 @@ public class MainController {
 
         // setItems(): gắn data (.) items vào table trên ui
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        configureNameColumnIcons();
         sizeColumn.setCellValueFactory(new PropertyValueFactory<>("size"));
         filesColumn.setCellValueFactory(new PropertyValueFactory<>("files"));
         folderColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
         dateModifiedColumn.setCellValueFactory(new PropertyValueFactory<>("dateModified"));
-        //fileTableView.setItems(items);
+        // fileTableView.setItems(items);
 
-       // tìm kiếm 
-// ------------------ BẮT ĐẦU PHẦN TÌM KIẾM ------------------
+        // tìm kiếm
+        // ------------------ BẮT ĐẦU PHẦN TÌM KIẾM ------------------
         FilteredList<FileItem> filteredData = new FilteredList<>(items, b -> true);
 
         if (searchBox != null) {
@@ -226,11 +229,15 @@ public class MainController {
                 clearIcon.setIconSize(12);
                 clearSearchBtn.setGraphic(clearIcon);
                 clearSearchBtn.setFocusTraversable(false);
-                clearSearchBtn.setStyle("-fx-background-color: transparent; -fx-cursor: hand; -fx-padding: 2 5 2 5; -fx-opacity: 0.6;");
-                clearSearchBtn.setOnMouseEntered(e -> clearSearchBtn.setStyle("-fx-background-color: transparent; -fx-cursor: hand; -fx-padding: 2 5 2 5; -fx-opacity: 1.0;"));
-                clearSearchBtn.setOnMouseExited(e -> clearSearchBtn.setStyle("-fx-background-color: transparent; -fx-cursor: hand; -fx-padding: 2 5 2 5; -fx-opacity: 0.6;"));
+                clearSearchBtn.setStyle(
+                        "-fx-background-color: transparent; -fx-cursor: hand; -fx-padding: 2 5 2 5; -fx-opacity: 0.6;");
+                clearSearchBtn.setOnMouseEntered(e -> clearSearchBtn.setStyle(
+                        "-fx-background-color: transparent; -fx-cursor: hand; -fx-padding: 2 5 2 5; -fx-opacity: 1.0;"));
+                clearSearchBtn.setOnMouseExited(e -> clearSearchBtn.setStyle(
+                        "-fx-background-color: transparent; -fx-cursor: hand; -fx-padding: 2 5 2 5; -fx-opacity: 0.6;"));
 
-                // Đặt nút X nằm bên phải ô nhập liệu (cách mép phải 28px để tránh đè lên mũi tên dropdown)
+                // Đặt nút X nằm bên phải ô nhập liệu (cách mép phải 28px để tránh đè lên mũi
+                // tên dropdown)
                 javafx.scene.layout.StackPane.setAlignment(clearSearchBtn, javafx.geometry.Pos.CENTER_RIGHT);
                 javafx.scene.layout.StackPane.setMargin(clearSearchBtn, new javafx.geometry.Insets(0, 28, 0, 0));
 
@@ -261,7 +268,8 @@ public class MainController {
                 private final javafx.scene.control.Label textLabel = new javafx.scene.control.Label();
 
                 {
-                    deleteBtn.setStyle("-fx-text-fill: red; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-weight: bold; -fx-padding: 0 4 0 8;");
+                    deleteBtn.setStyle(
+                            "-fx-text-fill: red; -fx-background-color: transparent; -fx-cursor: hand; -fx-font-weight: bold; -fx-padding: 0 4 0 8;");
                     javafx.scene.layout.BorderPane.setAlignment(textLabel, javafx.geometry.Pos.CENTER_LEFT);
                     javafx.scene.layout.BorderPane.setAlignment(deleteBtn, javafx.geometry.Pos.CENTER_RIGHT);
                     rowPane.setLeft(textLabel);
@@ -357,6 +365,8 @@ public class MainController {
         SortedList<FileItem> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(fileTableView.comparatorProperty());
         fileTableView.setItems(sortedData);
+
+        configureSort();
         // ------------------ KẾT THÚC PHẦN TÌM KIẾM ------------------
         // Cấu hình hiệu ứng Cut / Copy
         configureCutRowStyle();
@@ -386,8 +396,9 @@ public class MainController {
 
         pathComboBox.setOnAction(e -> {
             String value = pathComboBox.getValue();
-            if (value == null || value.isBlank())
+            if (value == null || value.isBlank()) {
                 return;
+            }
             Path p = Paths.get(value.trim());
             if (Files.isDirectory(p) && !p.equals(currentPath)) {
                 navigateTo(p);
@@ -407,6 +418,7 @@ public class MainController {
         });
 
         navigateTo(currentPath);
+        updateDiskSpaceLabel();
     }
 
     // Điều hướng thông thường: có lưu lịch sử
@@ -440,6 +452,7 @@ public class MainController {
         pathComboBox.setValue(currentPath.toString());
 
         updateNavigationButtons();
+        updateDiskSpaceLabel();
     }
 
     @FXML
@@ -484,6 +497,7 @@ public class MainController {
 
         // Cập nhật giao diện
         fileTableView.refresh();
+        updateDiskSpaceLabel();
     }
 
     private void updateNavigationButtons() {
@@ -502,7 +516,6 @@ public class MainController {
     }
 
     // ===================== NEW =====================
-
     @FXML
     private void handleNewFolder(ActionEvent event) {
         createNew("New Folder", "", true);
@@ -546,8 +559,9 @@ public class MainController {
     }
 
     private Path uniquePath(Path path) {
-        if (!Files.exists(path))
+        if (!Files.exists(path)) {
             return path;
+        }
 
         String fileName = path.getFileName().toString();
         int dot = fileName.lastIndexOf('.');
@@ -904,12 +918,198 @@ public class MainController {
         }
     }
 
+    private void configureNameColumnIcons() {
+
+        nameColumn.setCellFactory(column -> new TableCell<FileItem, String>() {
+
+            @Override
+            protected void updateItem(String name, boolean empty) {
+                super.updateItem(name, empty);
+
+                if (empty || name == null) {
+                    setText(null);
+                    setGraphic(null);
+                    return;
+                }
+
+                FileItem item = getTableView().getItems().get(getIndex());
+
+                // Xác định icon và màu sắc
+                Ikon iconCode;
+                String iconColor;
+
+                if (Files.isDirectory(item.getPath())) {
+
+                    // Folder
+                    iconCode = FontAwesomeSolid.FOLDER;
+                    iconColor = "#E5AD43";
+
+                } else {
+
+                    String fileName = item.getName().toLowerCase();
+                    int dot = fileName.lastIndexOf('.');
+
+                    String extension = dot >= 0
+                            ? fileName.substring(dot)
+                            : "";
+
+                    switch (extension) {
+                        case ".pdf" -> {
+                            iconCode = FontAwesomeSolid.FILE_PDF;
+                            iconColor = "#E05C5C";
+                        }
+
+                        case ".doc", ".docx" -> {
+                            iconCode = FontAwesomeSolid.FILE_WORD;
+                            iconColor = "#4C9AE8";
+                        }
+
+                        case ".xls", ".xlsx", ".csv" -> {
+                            iconCode = FontAwesomeSolid.FILE_EXCEL;
+                            iconColor = "#28A36A";
+                        }
+
+                        case ".ppt", ".pptx" -> {
+                            iconCode = FontAwesomeSolid.FILE_POWERPOINT;
+                            iconColor = "#E58B45";
+                        }
+
+                        case ".png", ".jpg", ".jpeg", ".gif",
+                                ".bmp", ".webp", ".svg" -> {
+                            iconCode = FontAwesomeSolid.FILE_IMAGE;
+                            iconColor = "#A47BE0";
+                        }
+
+                        case ".mp4", ".mkv", ".avi", ".mov" -> {
+                            iconCode = FontAwesomeSolid.FILE_VIDEO;
+                            iconColor = "#D76B9B";
+                        }
+
+                        case ".mp3", ".wav", ".flac", ".aac" -> {
+                            iconCode = FontAwesomeSolid.FILE_AUDIO;
+                            iconColor = "#8D79D6";
+                        }
+
+                        case ".zip", ".rar", ".7z", ".tar", ".gz" -> {
+                            iconCode = FontAwesomeSolid.FILE_ARCHIVE;
+                            iconColor = "#C49A55";
+                        }
+
+                        case ".java", ".cpp", ".c", ".py", ".js",
+                                ".html", ".css", ".xml", ".json" -> {
+                            iconCode = FontAwesomeSolid.FILE_CODE;
+                            iconColor = "#58A6C9";
+                        }
+
+                        default -> {
+                            iconCode = FontAwesomeSolid.FILE_ALT;
+                            iconColor = "#999999";
+                        }
+                    }
+                }
+
+                // Tạo FontIcon
+                FontIcon icon = new FontIcon(iconCode);
+                icon.setIconSize(16);
+                icon.setIconColor(Color.web(iconColor));
+
+                // Tạo Label chứa tên file
+                Label nameLabel = new Label(name);
+
+                // Ghép icon và tên
+                HBox container = new HBox(8);
+                container.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
+                container.getChildren().addAll(icon, nameLabel);
+
+                setText(null);
+                setGraphic(container);
+            }
+        });
+    }
+
+    private void configureSort() {
+
+        // Cột sắp xếp theo Name
+        TableColumn<FileItem, String> sortNameColumn = new TableColumn<>();
+        sortNameColumn.setCellValueFactory(cell -> new javafx.beans.property.SimpleStringProperty(
+                cell.getValue().getName()));
+        sortNameColumn.setComparator(String.CASE_INSENSITIVE_ORDER);
+        sortNameColumn.setVisible(false);
+
+        // Cột sắp xếp theo Type
+        TableColumn<FileItem, String> sortTypeColumn = new TableColumn<>();
+        sortTypeColumn.setCellValueFactory(cell -> new javafx.beans.property.SimpleStringProperty(
+                cell.getValue().getType()));
+        sortTypeColumn.setComparator(String.CASE_INSENSITIVE_ORDER);
+        sortTypeColumn.setVisible(false);
+
+        // Cột sắp xếp theo Size
+        TableColumn<FileItem, Long> sortSizeColumn = new TableColumn<>();
+        sortSizeColumn.setCellValueFactory(cell -> new javafx.beans.property.SimpleObjectProperty<>(
+                cell.getValue().getSizeBytes()));
+        sortSizeColumn.setVisible(false);
+
+        // Cột sắp xếp theo Date Create
+        TableColumn<FileItem, Long> sortDateCreatedColumn = new TableColumn<>();
+        sortDateCreatedColumn.setCellValueFactory(cell -> new javafx.beans.property.SimpleObjectProperty<>(
+                cell.getValue().getDateCreatedMillis()));
+        sortDateCreatedColumn.setVisible(false);
+
+        // Cột sắp xếp theo Date Modified
+        TableColumn<FileItem, Long> sortDateModifiedColumn = new TableColumn<>();
+        sortDateModifiedColumn.setCellValueFactory(cell -> new javafx.beans.property.SimpleObjectProperty<>(
+                cell.getValue().getDateModifiedMillis()));
+        sortDateModifiedColumn.setVisible(false);
+
+        // Thêm các cột ẩn vào TableView
+        fileTableView.getColumns().addAll(
+                sortNameColumn,
+                sortTypeColumn,
+                sortSizeColumn,
+                sortDateCreatedColumn,
+                sortDateModifiedColumn);
+
+        // Xử lý khi chọn tiêu chí sắp xếp
+        sortComboBox.setOnAction(event -> {
+
+            String selected = sortComboBox.getValue();
+
+            TableColumn<FileItem, ?> selectedColumn = switch (selected) {
+                case "Name" -> sortNameColumn;
+                case "Type" -> sortTypeColumn;
+                case "Size" -> sortSizeColumn;
+                case "Date Create" -> sortDateCreatedColumn;
+                case "Date Modified" -> sortDateModifiedColumn;
+                default -> null;
+            };
+
+            fileTableView.getSortOrder().clear();
+
+            if (selectedColumn != null) {
+
+                // Date Modified: mới nhất nằm trên cùng
+                if (selectedColumn == sortDateModifiedColumn) {
+                    selectedColumn.setSortType(
+                            TableColumn.SortType.DESCENDING);
+                } else {
+                    selectedColumn.setSortType(
+                            TableColumn.SortType.ASCENDING);
+                }
+
+                fileTableView.getSortOrder().add(selectedColumn);
+            }
+
+            fileTableView.sort();
+        });
+    }
+
     // ===================== TYPE FILES =====================
     private final Map<String, String> typeCache = new HashMap<>();
 
     private String getTypeName(Path p, boolean isDir) {
-        if (isDir)
+        if (isDir) {
             return "File folder";
+        }
 
         String name = p.getFileName().toString();
         int dot = name.lastIndexOf('.');
@@ -921,8 +1121,9 @@ public class MainController {
                 // Lấy đúng tên loại file mà Windows hiển thị (Text Document, PDF File...)
                 String desc = FileSystemView.getFileSystemView()
                         .getSystemTypeDescription(p.toFile());
-                if (desc != null && !desc.isBlank())
+                if (desc != null && !desc.isBlank()) {
                     return desc;
+                }
             } catch (Exception ignored) {
             }
             return ext.isEmpty() ? "File" : ext.substring(1).toUpperCase() + " File";
@@ -960,8 +1161,17 @@ public class MainController {
                     String type = getTypeName(p, isDir);
                     String date = fmt.format(new Date(attr.lastModifiedTime().toMillis()));
 
-                    items.add(new FileItem(p.getFileName().toString(),
-                            size, filesFolders, "", type, date, p));
+                    items.add(new FileItem(
+                            p.getFileName().toString(),
+                            size,
+                            filesFolders,
+                            "",
+                            type,
+                            date,
+                            p,
+                            isDir ? 0L : attr.size(),
+                            attr.creationTime().toMillis(),
+                            attr.lastModifiedTime().toMillis()));
                 } catch (IOException ignored) {
                     // file bị khóa / bỏ qua
                 }
@@ -980,20 +1190,47 @@ public class MainController {
     }
 
     private String formatSize(long bytes) {
-        if (bytes < 1024)
+        if (bytes < 1024) {
             return bytes + " B";
-        if (bytes < 1024 * 1024)
+        }
+        if (bytes < 1024 * 1024) {
             return String.format("%.1f KB", bytes / 1024.0);
-        if (bytes < 1024L * 1024 * 1024)
+        }
+        if (bytes < 1024L * 1024 * 1024) {
             return String.format("%.1f MB", bytes / (1024.0 * 1024));
+        }
         return String.format("%.1f GB", bytes / (1024.0 * 1024 * 1024));
     }
 
     // Error Ráise
-
     private void showError(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR, message);
         alert.setHeaderText(null);
         alert.showAndWait();
+    }
+
+    // ===================== DISK SPACE =====================
+
+    private void updateDiskSpaceLabel() {
+
+        try {
+            File drive = currentPath.toFile();
+
+            long freeSpace = drive.getFreeSpace();
+            long totalSpace = drive.getTotalSpace();
+
+            // Chuyển đổi Byte sang GB
+            double freeGB = freeSpace / (1024.0 * 1024 * 1024);
+            double totalGB = totalSpace / (1024.0 * 1024 * 1024);
+
+            DecimalFormat df = new DecimalFormat("0.#");
+
+            diskSpaceLabel.setText(
+                    "Free Space: " + df.format(freeGB)
+                            + " GB (of " + df.format(totalGB) + " GB)");
+
+        } catch (Exception e) {
+            diskSpaceLabel.setText("Free Space: Unavailable");
+        }
     }
 }
